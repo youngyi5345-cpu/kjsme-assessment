@@ -1,0 +1,13 @@
+{
+  "name": "kjsme-assessment",
+  "version": "1.0.0",
+  "description": "科技型中小企业申报自评系统 - 广东知企企业管理服务有限公司",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

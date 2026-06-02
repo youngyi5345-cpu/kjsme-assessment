@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据管理后台 - 广东知企企业管理服务有限公司</title>
+<style>
+  :root {
+    --bg: #f4f6f9; --card-bg: #fff; --text: #2c3e50; --text-secondary: #5a6c7d;
+    --border: #e0e4e8; --accent: #1a56db; --success: #16a34a; --danger: #dc2626;
+    --warning: #ea580c; --radius: 8px; --shadow: 0 1px 3px rgba(0,0,0,.06);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+  .container { max-width: 1400px; margin: 0 auto; }
+
+  .header { background: #0f1d3a; color: #fff; padding: 20px 28px; border-radius: var(--radius); margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .header h1 { font-size: 1.3rem; }
+  .header .stats { display: flex; gap: 20px; }
+  .header .stat { text-align: center; }
+  .header .stat .num { font-size: 1.8rem; font-weight: 800; }
+  .header .stat .lbl { font-size: .75rem; opacity: .7; }
+
+  .toolbar { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
+  .toolbar input { padding: 8px 12px; border: 1.5px solid var(--border); border-radius: 6px; font-size: .88rem; width: 250px; }
+  .btn { padding: 8px 18px; border-radius: 6px; font-size: .88rem; font-weight: 600; cursor: pointer; border: none; font-family: inherit; transition: all .15s; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #1a4bc4; }
+  .btn-outline { background: #fff; color: var(--accent); border: 1.5px solid var(--accent); }
+  .btn-outline:hover { background: #eff6ff; }
+  .btn-danger { background: #fff; color: var(--danger); border: 1.5px solid var(--danger); }
+  .btn-danger:hover { background: #fef2f2; }
+  .btn-success { background: var(--success); color: #fff; }
+
+  .card { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+  .card-body { padding: 16px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+  thead th { background: #f8fafc; text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); font-weight: 600; color: var(--text-secondary); white-space: nowrap; position: sticky; top: 0; }
+  tbody td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tbody tr:hover { background: #fafbfc; }
+  .table-wrap { max-height: 65vh; overflow: auto; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: .74rem; font-weight: 600; }
+  .badge-pass { background: #f0fdf4; color: #16a34a; }
+  .badge-fail { background: #fef2f2; color: #dc2626; }
+  .badge-direct { background: #dbeafe; color: #1d4ed8; }
+
+  .pagination { display: flex; gap: 6px; align-items: center; justify-content: center; margin-top: 14px; }
+  .pagination button { padding: 6px 12px; border: 1px solid var(--border); background: #fff; border-radius: 4px; cursor: pointer; font-size: .84rem; }
+  .pagination button:disabled { opacity: .4; cursor: default; }
+  .pagination button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .pagination span { font-size: .84rem; color: var(--text-secondary); }
+
+  .empty { text-align: center; padding: 50px; color: var(--text-secondary); }
+  .detail-row { cursor: pointer; }
+  .detail-panel { display: none; background: #f8fafc; }
+  .detail-panel.show { display: table-row; }
+  .detail-panel td { padding: 14px 20px; }
+  .detail-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px 20px; font-size: .84rem; }
+  .detail-grid dt { color: var(--text-secondary); font-size: .78rem; }
+  .detail-grid dd { margin-bottom: 6px; font-weight: 500; }
+
+  .auth-overlay { display: flex; position: fixed; inset: 0; background: rgba(15,29,58,.9); z-index: 9999; align-items: center; justify-content: center; }
+  .auth-box { background: #fff; border-radius: var(--radius); padding: 28px; text-align: center; max-width: 380px; width: 90%; }
+  .auth-box h2 { margin-bottom: 6px; }
+  .auth-box p { font-size: .85rem; color: var(--text-secondary); margin-bottom: 16px; }
+  .auth-box input { width: 100%; padding: 10px; border: 2px solid var(--border); border-radius: 6px; font-size: 1rem; text-align: center; margin-bottom: 12px; }
+
+  @media (max-width: 700px) {
+    .header { flex-direction: column; text-align: center; }
+    .header .stats { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ 鉴权 ═══ -->
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-box">
+    <h2>🔐 管理员登录</h2>
+    <p>请输入管理密钥查看提交数据</p>
+    <input type="password" id="authKey" placeholder="请输入管理密钥" onkeydown="if(event.key==='Enter')doAuth()">
+    <button class="btn btn-primary" onclick="doAuth()" style="width:100%;">登 录</button>
+    <p style="font-size:.75rem;color:var(--text-secondary);margin-top:10px;">默认密钥：zhiqi2026</p>
+  </div>
+</div>
+
+<!-- ═══ 主界面 ═══ -->
+<div id="mainUI" style="display:none;">
+<div class="container">
+
+<div class="header">
+  <div>
+    <h1>📊 科技型中小企业申报 — 数据管理后台</h1>
+    <p style="opacity:.7;font-size:.82rem;">广东知企企业管理服务有限公司</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="num" id="statTotal">0</div><div class="lbl">总提交数</div></div>
+    <div class="stat"><div class="num" id="statToday" style="color:#60a5fa;">0</div><div class="lbl">今日新增</div></div>
+    <div class="stat"><div class="num" id="statPass" style="color:#4ade80;">0</div><div class="lbl">预估合格</div></div>
+  </div>
+</div>
+
+<div class="toolbar">
+  <input type="text" id="searchInput" placeholder="🔍 搜索企业名称 / 联系人 / 电话..." oninput="renderTable()">
+  <button class="btn btn-outline" onclick="refreshData()">🔄 刷新</button>
+  <button class="btn btn-success" onclick="exportCSV()">📥 导出 CSV</button>
+  <button class="btn btn-danger" onclick="if(confirm('确定要清除所有数据吗？此操作不可恢复！'))clearData()">🗑️ 清除数据</button>
+  <span style="margin-left:auto;font-size:.82rem;color:var(--text-secondary);" id="lastRefresh"></span>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <div class="table-wrap">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>提交时间</th>
+            <th>企业名称</th>
+            <th>联系人</th>
+            <th>电话</th>
+            <th>总评分</th>
+            <th>是否合格</th>
+            <th>直通车</th>
+            <th>风险项</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr><td colspan="8" class="empty">暂无数据</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+</div>
+
+</div><!-- /container -->
+</div><!-- /mainUI -->
+
+<script>
+var AUTH_KEY = 'zhiqi2026';
+var API_BASE = '';
+var submissions = [];
+var pageSize = 20;
+var currentPage = 1;
+var expandedRow = null;
+
+// ═══ 鉴权 ═══
+function doAuth() {
+  var key = document.getElementById('authKey').value.trim();
+  if (key === AUTH_KEY) {
+    document.getElementById('authOverlay').style.display = 'none';
+    document.getElementById('mainUI').style.display = 'block';
+    refreshData();
+  } else {
+    alert('密钥错误，请重试');
+  }
+}
+
+// 从URL参数自动鉴权
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('key') === AUTH_KEY) {
+    document.getElementById('authOverlay').style.display = 'none';
+    document.getElementById('mainUI').style.display = 'block';
+    refreshData();
+  }
+})();
+
+// ═══ 数据加载 ═══
+function refreshData() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', API_BASE + '/api/submissions?key=' + AUTH_KEY, true);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      var resp = JSON.parse(xhr.responseText);
+      submissions = resp.submissions || [];
+      updateStats();
+      renderTable();
+      document.getElementById('lastRefresh').textContent = '更新于 ' + new Date().toLocaleTimeString('zh-CN');
+    } else if (xhr.status === 401) {
+      alert('会话已过期，请重新登录');
+      location.reload();
+    }
+  };
+  xhr.onerror = function() {
+    document.getElementById('lastRefresh').textContent = '连接失败，请检查服务器';
+  };
+  xhr.send();
+}
+
+function updateStats() {
+  document.getElementById('statTotal').textContent = submissions.length;
+  var today = new Date().toISOString().slice(0, 10);
+  var todayCount = 0, passCount = 0;
+  submissions.forEach(function(s) {
+    if (s.submittedAt && s.submittedAt.slice(0, 10) === today) todayCount++;
+    if (s.totalScore >= 60 || s.hasDirect) passCount++;
+  });
+  document.getElementById('statToday').textContent = todayCount;
+  document.getElementById('statPass').textContent = passCount;
+}
+
+// ═══ 表格渲染 ═══
+function renderTable() {
+  var search = (document.getElementById('searchInput').value || '').toLowerCase();
+  var filtered = submissions.filter(function(s) {
+    if (!search) return true;
+    return (s.companyName || '').toLowerCase().indexOf(search) !== -1
+      || (s.contactName || '').toLowerCase().indexOf(search) !== -1
+      || (s.contactPhone || '').indexOf(search) !== -1;
+  });
+
+  var totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+  if (currentPage > totalPages) currentPage = totalPages;
+  var start = (currentPage - 1) * pageSize;
+  var pageData = filtered.slice(start, start + pageSize);
+
+  var tbody = document.getElementById('tableBody');
+  if (pageData.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="8" class="empty">暂无匹配数据</td></tr>';
+    return;
+  }
+
+  var html = '';
+  pageData.forEach(function(s, i) {
+    var globalIdx = start + i;
+    var scoreColor = s.totalScore >= 60 ? 'var(--success)' : 'var(--danger)';
+    var qualified = s.totalScore >= 60 || s.hasDirect;
+    var riskWarn = s.riskWarnings ? s.riskWarnings.split(';').filter(Boolean).length : 0;
+
+    html += '<tr class="detail-row" onclick="toggleDetail(' + globalIdx + ', this)" style="cursor:pointer;">' +
+      '<td>' + formatTime(s.submittedAt) + '</td>' +
+      '<td><strong>' + escapeHTML(s.companyName || '—') + '</strong></td>' +
+      '<td>' + escapeHTML(s.contactName || '—') + '</td>' +
+      '<td>' + escapeHTML(s.contactPhone || '—') + '</td>' +
+      '<td><strong style="color:' + scoreColor + '">' + (s.totalScore != null ? s.totalScore + '分' : '—') + '</strong></td>' +
+      '<td>' + (s.hasDirect ? '<span class="badge badge-direct">直通车</span>' : qualified ? '<span class="badge badge-pass">合格</span>' : '<span class="badge badge-fail">不足</span>') + '</td>' +
+      '<td>' + (s.hasDirect ? '✅' : '—') + '</td>' +
+      '<td>' + (riskWarn > 0 ? '<span class="badge badge-fail">' + riskWarn + '项</span>' : '<span class="badge badge-pass">无</span>') + '</td>' +
+      '</tr>';
+
+    // 展开详情行
+    html += '<tr class="detail-panel" id="detail-' + globalIdx + '"><td colspan="8">' +
+      '<div class="detail-grid">' +
+      '<div><dt>统一社会信用代码</dt><dd>' + escapeHTML(s.creditCode || '—') + '</dd></div>' +
+      '<div><dt>注册地</dt><dd>' + escapeHTML(s.regLocation || '—') + '</dd></div>' +
+      '<div><dt>成立日期</dt><dd>' + escapeHTML(s.establishDate || '—') + '</dd></div>' +
+      '<div><dt>所属行业</dt><dd>' + escapeHTML(s.industry || '—') + '</dd></div>' +
+      '<div><dt>注册类型</dt><dd>' + escapeHTML(s.regType || '—') + '</dd></div>' +
+      '<div><dt>职工总数</dt><dd>' + (s.empCount || '—') + ' 人</dd></div>' +
+      '<div><dt>年销售收入</dt><dd>' + (s.revenue || '—') + ' 万元</dd></div>' +
+      '<div><dt>资产总额</dt><dd>' + (s.assets || '—') + ' 万元</dd></div>' +
+      '<div><dt>科技人员数</dt><dd>' + (s.techStaff || '—') + ' 人（' + (s.techRatio || '—') + '）</dd></div>' +
+      '<div><dt>研发费用</dt><dd>' + (s.rdCost || '—') + ' 万元</dd></div>' +
+      '<div><dt>研发占收入比</dt><dd>' + (s.rdRevRatio || '—') + '</dd></div>' +
+      '<div><dt>研发占成本比</dt><dd>' + (s.rdCostRatio || '—') + '</dd></div>' +
+      '<div><dt>Ⅰ类知识产权</dt><dd>' + (s.ipClass1 || 0) + ' 项</dd></div>' +
+      '<div><dt>Ⅱ类知识产权</dt><dd>' + (s.ipClass2 || 0) + ' 项</dd></div>' +
+      '<div><dt>基本条件</dt><dd>' + (s.basicAllPass ? '✅ 全部通过' : '❌ 未通过') + '</dd></div>' +
+      '<div><dt>风险提示</dt><dd>' + escapeHTML(s.riskWarnings || '无') + '</dd></div>' +
+      '<div><dt>邮箱</dt><dd>' + escapeHTML(s.contactEmail || '—') + '</dd></div>' +
+      '<div><dt>职位</dt><dd>' + escapeHTML(s.contactTitle || '—') + '</dd></div>' +
+      '<div><dt>备注</dt><dd>' + escapeHTML(s.remark || '—') + '</dd></div>' +
+      '<div><dt>提交编号</dt><dd style="font-family:monospace;font-size:.78rem;">' + s.id + '</dd></div>' +
+      '</div></td></tr>';
+  });
+
+  tbody.innerHTML = html;
+
+  // 分页
+  var paginationHTML = '';
+  paginationHTML += '<button ' + (currentPage <= 1 ? 'disabled' : '') + ' onclick="goPage(' + (currentPage - 1) + ')">‹ 上一页</button>';
+  for (var p = 1; p <= totalPages; p++) {
+    if (totalPages <= 7 || p === 1 || p === totalPages || Math.abs(p - currentPage) <= 1) {
+      paginationHTML += '<button class="' + (p === currentPage ? 'active' : '') + '" onclick="goPage(' + p + ')">' + p + '</button>';
+    } else if (p === 2 && currentPage > 3) {
+      paginationHTML += '<span>…</span>';
+    } else if (p === totalPages - 1 && currentPage < totalPages - 2) {
+      paginationHTML += '<span>…</span>';
+    }
+  }
+  paginationHTML += '<button ' + (currentPage >= totalPages ? 'disabled' : '') + ' onclick="goPage(' + (currentPage + 1) + ')">下一页 ›</button>';
+  paginationHTML += '<span>共 ' + filtered.length + ' 条</span>';
+  document.getElementById('pagination').innerHTML = paginationHTML;
+}
+
+function goPage(p) {
+  currentPage = p;
+  renderTable();
+}
+
+function toggleDetail(idx, row) {
+  var panel = document.getElementById('detail-' + idx);
+  if (!panel) return;
+  if (expandedRow !== null && expandedRow !== idx) {
+    var prev = document.getElementById('detail-' + expandedRow);
+    if (prev) prev.classList.remove('show');
+  }
+  panel.classList.toggle('show');
+  expandedRow = panel.classList.contains('show') ? idx : null;
+}
+
+function exportCSV() {
+  window.open(API_BASE + '/api/export?key=' + AUTH_KEY, '_blank');
+}
+
+function clearData() {
+  // Note: JSON file clear would need a dedicated API endpoint
+  alert('请通过服务器端删除 data/submissions.json 文件来清除数据。出于安全考虑，不支持在线清除。');
+}
+
+function formatTime(iso) {
+  if (!iso) return '—';
+  var d = new Date(iso);
+  return d.getFullYear() + '-' +
+    String(d.getMonth() + 1).padStart(2, '0') + '-' +
+    String(d.getDate()).padStart(2, '0') + ' ' +
+    String(d.getHours()).padStart(2, '0') + ':' +
+    String(d.getMinutes()).padStart(2, '0');
+}
+
+function escapeHTML(str) {
+  if (!str) return '—';
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+</script>
+</body>
+</html>
