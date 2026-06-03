@@ -100,6 +100,7 @@
   .toast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%); z-index: 9999; padding: 14px 24px; border-radius: 8px; font-weight: 600; font-size: .92rem; display: none; box-shadow: 0 4px 16px rgba(0,0,0,.15); }
   .toast-success { background: #065f46; color: #fff; }
   .toast-error { background: #991b1b; color: #fff; }
+  .toast-warn { background: #b45309; color: #fff; }
 
   /* required asterisk */
   .required { color: var(--danger); }
@@ -162,14 +163,14 @@
 
 <!-- ═══ 一、企业基本信息 ═══ -->
 <div class="card">
-  <div class="card-header">📝 一、企业基本信息</div>
+  <div class="card-header">📝 一、企业基本信息 <span style="font-weight:400;font-size:.78rem;color:var(--text-secondary);">（选填，仅用于生成自评报告）</span></div>
   <div class="card-body">
     <table>
       <tr>
-        <td style="width:18%;font-weight:600;"><span class="required">*</span> 企业名称</td>
-        <td style="width:32%;"><input type="text" id="companyName" placeholder="请输入企业全称"></td>
+        <td style="width:18%;font-weight:600;">企业名称</td>
+        <td style="width:32%;"><input type="text" id="companyName" placeholder="选填"></td>
         <td style="width:18%;font-weight:600;">统一社会信用代码</td>
-        <td style="width:32%;"><input type="text" id="creditCode" placeholder="请输入"></td>
+        <td style="width:32%;"><input type="text" id="creditCode" placeholder="选填"></td>
       </tr>
       <tr>
         <td style="font-weight:600;">注册地</td>
@@ -306,9 +307,48 @@
   </div>
 </div>
 
-<!-- ═══ 六、核查风险 ═══ -->
+<!-- ═══ 六、关于广东知企 ═══ -->
+<div class="card" style="border-left: 4px solid var(--accent);">
+  <div class="card-header" style="background:#f8faff;">
+    🏢 关于广东知企 — 您身边的政策申报专家
+  </div>
+  <div class="card-body">
+    <p style="font-size:.9rem;margin-bottom:14px;line-height:1.8;">
+      广东知企企业管理服务有限公司是一家专注于<strong>政策资源整合与企业发展赋能</strong>的专业咨询服务机构，长期服务于大中小型企业、创新型企业及科研机构，提供"<strong>政策申报 + 管理提升 + 项目落地</strong>"一体化解决方案，助力企业精准享受政策红利，实现高质量可持续发展。
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;">
+      <div style="background:#f8fafc;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px;">📋 政策申报与资质认定</div>
+        <div style="font-size:.8rem;color:var(--text-secondary);line-height:1.6;">高新技术企业 · 专精特新 · 科技型中小企业 · 工程技术研究中心 · 知识产权示范企业等核心资质培育与认定，精准匹配申报标准，全程专人跟进。</div>
+      </div>
+      <div style="background:#f8fafc;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px;">💡 知识产权与成果转化</div>
+        <div style="font-size:.8rem;color:var(--text-secondary);line-height:1.6;">专利 · 商标 · 著作权全链条服务，涵盖布局规划、申请实施、风险防控、转让许可、战略规划及成果转化支持，助力构建技术壁垒。</div>
+      </div>
+      <div style="background:#f8fafc;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px;">📊 企业管理提升咨询</div>
+        <div style="font-size:.8rem;color:var(--text-secondary);line-height:1.6;">组织架构优化 · 绩效激励体系设计 · 流程制度建设 · 经营分析体系搭建 · 研发费用辅助账规范，推动管理规范化与精细化运营。</div>
+      </div>
+      <div style="background:#f8fafc;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px;">📝 政务与项目文书服务</div>
+        <div style="font-size:.8rem;color:var(--text-secondary);line-height:1.6;">可行性研究报告 · 项目申报书 · 申请报告 · 汇报材料 · 工作总结 · 发展规划等高质量文书，符合政府评审逻辑与政策导向。</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;padding:14px;background:linear-gradient(135deg,#eff6ff 0%,#f0fdf4 100%);border-radius:8px;">
+      <div style="flex:1;min-width:200px;"><strong style="color:var(--accent);">✅ 政策研究能力突出</strong><br><span style="font-size:.8rem;color:var(--text-secondary);">长期跟踪国家及地方产业政策，精准匹配与落地转化</span></div>
+      <div style="flex:1;min-width:200px;"><strong style="color:var(--accent);">✅ 项目实操经验丰富</strong><br><span style="font-size:.8rem;color:var(--text-secondary);">深度参与各类资质认定全过程，熟悉评审逻辑与验收规范</span></div>
+      <div style="flex:1;min-width:200px;"><strong style="color:var(--accent);">✅ 全链条综合服务</strong><br><span style="font-size:.8rem;color:var(--text-secondary);">评估→策划→申报→实施→验收，一站式赋能体系</span></div>
+      <div style="flex:1;min-width:200px;"><strong style="color:var(--accent);">✅ 定制化服务能力</strong><br><span style="font-size:.8rem;color:var(--text-secondary);">拒绝模板化操作，针对性提升项目成功率</span></div>
+    </div>
+    <p style="text-align:center;margin-top:14px;font-size:.85rem;color:var(--text-secondary);">
+      累计服务各级政府部门、企事业单位 <strong style="color:var(--accent);">200+</strong> 家/次 · 覆盖梅州"六县两区" · 核心团队具备 <strong style="color:var(--accent);">4年+</strong> 创客广东大赛协办经验
+    </p>
+  </div>
+</div>
+
+<!-- ═══ 七、核查风险 ═══ -->
 <div class="card">
-  <div class="card-header">⚠️ 六、2026年度实地核查风险自查</div>
+  <div class="card-header">⚠️ 七、2026年度实地核查风险自查</div>
   <div class="card-body">
     <p class="section-desc">以下类型企业<strong>必须接受实地核查</strong>：</p>
     <table>
@@ -326,23 +366,23 @@
   </div>
 </div>
 
-<!-- ═══ 七、联系方式 & 提交 ═══ -->
+<!-- ═══ 八、联系方式 & 提交 ═══ -->
 <div class="card contact-card">
-  <div class="card-header"><span class="dot dot-contact"></span> 七、提交自评结果 & 获取专业辅导</div>
+  <div class="card-header"><span class="dot dot-contact"></span> 八、获取免费申报辅导 <span style="font-weight:400;font-size:.78rem;color:var(--text-secondary);">（选填，提交后顾问将在1个工作日内与您联系）</span></div>
   <div class="card-body">
-    <p class="section-desc">填写以下信息，<strong>广东知企企业管理服务有限公司</strong>的专业顾问将根据您的自评结果，提供一对一免费申报辅导。</p>
+    <p class="section-desc"><strong>广东知企企业管理服务有限公司</strong>的专业顾问将根据您的自评结果，提供<strong>一对一免费申报辅导</strong>，包括：申报路径规划、材料清单梳理、研发费用归集指导、知识产权布局建议等。</p>
     <table>
       <tr>
-        <td style="width:15%;font-weight:600;"><span class="required">*</span> 联系人</td>
-        <td style="width:35%;"><input type="text" id="contactName" placeholder="请填写您的姓名"></td>
-        <td style="width:15%;font-weight:600;"><span class="required">*</span> 联系电话</td>
-        <td style="width:35%;"><input type="tel" id="contactPhone" placeholder="手机号码"></td>
+        <td style="width:15%;font-weight:600;">联系人</td>
+        <td style="width:35%;"><input type="text" id="contactName" placeholder="选填"></td>
+        <td style="width:15%;font-weight:600;">联系电话</td>
+        <td style="width:35%;"><input type="tel" id="contactPhone" placeholder="选填"></td>
       </tr>
       <tr>
         <td style="font-weight:600;">电子邮箱</td>
-        <td><input type="email" id="contactEmail" placeholder="receipt@company.com"></td>
+        <td><input type="email" id="contactEmail" placeholder="选填"></td>
         <td style="font-weight:600;">职位</td>
-        <td><input type="text" id="contactTitle" placeholder="如：总经理 / 财务负责人"></td>
+        <td><input type="text" id="contactTitle" placeholder="选填"></td>
       </tr>
       <tr>
         <td style="font-weight:600;">备注</td>
@@ -366,7 +406,7 @@
 <!-- ═══ 底部 ═══ -->
 <div class="footer">
   <p>© 2026 广东知企企业管理服务有限公司 | 科技企业一站式政策申报服务</p>
-  <p style="margin-top:2px;">联系电话：请在此填写 | 邮箱：请在此填写 | 地址：请在此填写</p>
+  <p style="margin-top:2px;">📍 立足梅州 · 服务广东 | 覆盖"六县两区" | 累计服务企事业单位 200+ 家/次</p>
   <p style="margin-top:4px;color:#94a3b8;">数据依据：工企业函〔2026〕160号 · 国科发政〔2017〕115号 · 国科火字〔2022〕67号</p>
 </div>
 
@@ -631,7 +671,7 @@ function showResult() {
 function showToast(msg, type) {
   const t = document.getElementById('toast');
   t.textContent = msg;
-  t.className = 'toast toast-' + (type === 'error' ? 'error' : 'success');
+  t.className = 'toast toast-' + (type === 'error' ? 'error' : type === 'warn' ? 'warn' : 'success');
   t.style.display = 'block';
   setTimeout(function() { t.style.display = 'none'; }, 4000);
 }
@@ -690,10 +730,10 @@ function collectData() {
 function submitForm() {
   var data = collectData();
 
-  // 验证必填
-  if (!data.companyName) { showToast('请填写企业名称', 'error'); document.getElementById('companyName').focus(); return; }
-  if (!data.contactName) { showToast('请填写联系人姓名', 'error'); document.getElementById('contactName').focus(); return; }
-  if (!data.contactPhone) { showToast('请填写联系电话', 'error'); document.getElementById('contactPhone').focus(); return; }
+      // 温柔提醒（不强制填写，但建议留下联系方式以便后续服务）
+      if (!data.contactName && !data.contactPhone && !data.companyName) {
+        showToast('请至少填写企业名称或联系方式，以便我们为您提供后续辅导服务', 'warn');
+      }
 
   // 禁用按钮
   var btn = document.getElementById('submitBtn');
