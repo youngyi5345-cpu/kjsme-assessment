@@ -332,23 +332,7 @@
 </div>
 
 <!-- ═══ 五、总评结果 ═══ -->
-<div class="card" id="resultCard">
-  <div class="card-header"><span class="dot dot-check"></span> 五、自评总结果</div>
-  <div class="card-body" id="resultBody">
-    <div class="score-display">
-      <div class="score-circle score-fail">0</div>
-      <div class="score-label">综合评价预估得分（满分100分）</div>
-      <div class="score-detail">
-        <div class="score-item"><div class="val" style="color:var(--danger)">0</div><div class="lbl">科技人员 / 20分</div></div>
-        <div class="score-item"><div class="val">0</div><div class="lbl">研发投入 / 50分</div></div>
-        <div class="score-item"><div class="val">0</div><div class="lbl">科技成果 / 30分</div></div>
-      </div>
-      <p style="color:var(--text-secondary);font-size:.82rem;margin-top:12px;">👆 请在上方填入企业实际数据，结果将实时更新</p>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ 六、关于广东知企 ═══ -->
+<!-- ═══ 五、关于广东知企 ═══ -->
 <div class="card" style="border-left: 4px solid var(--accent);">
   <div class="card-header" style="background:#f8faff;">
     🏢 关于广东知企 — 您身边的政策申报专家
@@ -390,9 +374,9 @@
   </div>
 </div>
 
-<!-- ═══ 七、核查风险 ═══ -->
+<!-- ═══ 六、核查风险 ═══ -->
 <div class="card">
-  <div class="card-header">⚠️ 七、2026年度实地核查风险自查</div>
+  <div class="card-header">⚠️ 六、2026年度实地核查风险自查</div>
   <div class="card-body">
     <p class="section-desc">以下类型企业<strong>必须接受实地核查</strong>：</p>
     <table>
@@ -410,44 +394,28 @@
   </div>
 </div>
 
-<!-- ═══ 八、联系方式 & 提交 ═══ -->
-<div class="card contact-card">
-  <div class="card-header"><span class="dot dot-contact"></span> 八、获取免费申报辅导 <span style="font-weight:400;font-size:.78rem;color:var(--text-secondary);">（选填，提交后顾问将在1个工作日内与您联系）</span></div>
-  <div class="card-body">
-    <p class="section-desc"><strong>广东知企企业管理服务有限公司</strong>的专业顾问将根据您的自评结果，提供<strong>一对一免费申报辅导</strong>，包括：申报路径规划、材料清单梳理、研发费用归集指导、知识产权布局建议等。<br>📞 也可直接致电咨询：<strong>古先生 15218093468</strong></p>
-    <table>
-      <tr>
-        <td style="width:15%;font-weight:600;">联系人</td>
-        <td style="width:35%;"><input type="text" id="contactName" placeholder="选填"></td>
-        <td style="width:15%;font-weight:600;">联系电话</td>
-        <td style="width:35%;"><input type="tel" id="contactPhone" placeholder="选填"></td>
-      </tr>
-      <tr>
-        <td style="font-weight:600;">电子邮箱</td>
-        <td><input type="email" id="contactEmail" placeholder="选填"></td>
-        <td style="font-weight:600;">职位</td>
-        <td><input type="text" id="contactTitle" placeholder="选填"></td>
-      </tr>
-      <tr>
-        <td style="font-weight:600;">备注</td>
-        <td colspan="3"><textarea id="remark" rows="2" placeholder="其他需要说明的情况或想咨询的问题..."></textarea></td>
-      </tr>
-    </table>
-    <div class="btn-row">
-      <button class="btn btn-primary" id="submitBtn" onclick="submitForm()">
-        📩 提交自评结果，获取专业辅导
-      </button>
-      <button class="btn btn-outline" onclick="window.print()">
-        🖨️ 打印自评表
-      </button>
+<!-- ═══ 七、自评总结果 ═══ -->
+<div class="card" id="resultCard">
+  <div class="card-header"><span class="dot dot-check"></span> 七、自评总结果</div>
+  <div class="card-body" id="resultBody">
+    <div class="score-display">
+      <div class="score-circle score-fail">0</div>
+      <div class="score-label">综合评价预估得分（满分100分）</div>
+      <div class="score-detail">
+        <div class="score-item"><div class="val" style="color:var(--danger)">0</div><div class="lbl">科技人员 / 20分</div></div>
+        <div class="score-item"><div class="val">0</div><div class="lbl">研发投入 / 50分</div></div>
+        <div class="score-item"><div class="val">0</div><div class="lbl">科技成果 / 30分</div></div>
+      </div>
+      <p style="color:var(--text-secondary);font-size:.82rem;margin-top:12px;">👆 请在上方填入企业实际数据，结果将实时更新</p>
     </div>
-    <p style="text-align:center;font-size:.76rem;color:var(--text-secondary);margin-top:10px;">
-      本工具不收集企业信息，所有数据仅在您本地浏览器中处理。提交后将下载自评结果文件，请发送至古先生 15218093468 获取专业辅导。
-    </p>
   </div>
 </div>
 
 <!-- ═══ 底部 ═══ -->
+<div style="text-align:center;padding:8px 0 4px;margin-bottom:10px;">
+  <button class="btn btn-outline" onclick="window.print()" style="padding:6px 18px;font-size:.82rem;">🖨️ 打印自评表</button>
+  <p style="font-size:.72rem;color:var(--text-secondary);margin-top:8px;">本工具不收集企业信息，所有数据仅在您本地浏览器中处理。</p>
+</div>
 <div class="footer">
   <p>© 2026 广东知企企业管理服务有限公司 | 科技企业一站式政策申报服务</p>
   <p style="margin-top:2px;">📍 立足梅州 · 服务广东 | 📞 古先生：15218093468</p>
@@ -456,33 +424,6 @@
 
 </div><!-- /container -->
 
-<!-- ═══ Toast 通知 ═══ -->
-<div class="toast" id="toast"></div>
-
-<!-- ═══ 提交成功弹窗 ═══ -->
-<div class="modal-overlay" id="successModal">
-  <div class="modal">
-    <h3>✅ 提交成功！</h3>
-    <p>您的自评结果已成功发送。广东知企的专业顾问将在<strong>1个工作日内</strong>与您联系，为您提供免费的申报评估与辅导。<br>如需急询，请直接致电：<strong>古先生 15218093468</strong></p>
-    <div id="submissionSummary" class="submission-summary"></div>
-    <button class="btn btn-primary" style="margin-top:14px;" onclick="document.getElementById('successModal').classList.remove('show')">确 定</button>
-  </div>
-</div>
-
-<div class="modal-overlay" id="errorModal">
-  <div class="modal">
-    <h3>⚠️ 提交失败</h3>
-    <p id="errorMsg">提交失败，自评结果已下载为文件。请将文件发送给我们或直接致电：<strong>古先生 15218093468</strong></p>
-    <button class="btn btn-primary" style="margin-top:14px;" onclick="document.getElementById('errorModal').classList.remove('show')">关 闭</button>
-  </div>
-</div>
-
-<div class="modal-overlay" id="loadingModal">
-  <div class="modal">
-    <div class="spinner"></div>
-    <p>正在提交中，请稍候…</p>
-  </div>
-</div>
 
 
 <!-- ══════════════════ JS ══════════════════ -->
@@ -709,142 +650,6 @@ function showResult() {
       ${canApply ? '<p style="margin-top:12px;font-size:.85rem;">📌 申报平台：<a href="https://zjtx.miit.gov.cn" target="_blank">优质中小企业梯度培育平台 zjtx.miit.gov.cn</a></p>' : ''}
     </div>
   `;
-}
-
-// ═══ 提交 ═══
-function showToast(msg, type) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast toast-' + (type === 'error' ? 'error' : type === 'warn' ? 'warn' : 'success');
-  t.style.display = 'block';
-  setTimeout(function() { t.style.display = 'none'; }, 4000);
-}
-
-function collectData() {
-  var basicAllPass = Array.from(document.querySelectorAll('[id^="basic-badge-"]')).every(function(b) { return b.textContent.indexOf('✅') !== -1; });
-  var hasDirect = false;
-  document.querySelectorAll('[id^="direct-badge-"]').forEach(function(b) { if (b.textContent.indexOf('✅') !== -1) hasDirect = true; });
-
-  var riskItems = [];
-  var riskEls = document.querySelectorAll('#riskTable .badge-fail');
-  riskEls.forEach(function(el) { riskItems.push(el.textContent.trim()); });
-
-  return {
-    companyName: document.getElementById('companyName').value.trim(),
-    creditCode: document.getElementById('creditCode').value.trim(),
-    regLocation: document.getElementById('regLocation').value.trim(),
-    establishDate: document.getElementById('establishDate').value.trim(),
-    industry: document.getElementById('industry').value.trim(),
-    regType: document.getElementById('regType').value,
-    empCount: getIntVal('empCount'),
-    revenue: getVal('revenue'),
-    assets: getVal('assets'),
-    techStaff: getIntVal('techStaff'),
-    techRatio: (function() {
-      var emp = getIntVal('empCount'), tech = getIntVal('techStaff');
-      return emp > 0 ? (tech / emp * 100).toFixed(1) + '%' : '';
-    })(),
-    techScore: window._scores.tech,
-    rdCost: getVal('rdCost'),
-    costTotal: getVal('costTotal'),
-    rdRevRatio: (function() {
-      var rev = getVal('revenue'), rd = getVal('rdCost');
-      return rev > 0 ? (rd / rev * 100).toFixed(2) + '%' : '';
-    })(),
-    rdCostRatio: (function() {
-      var cost = getVal('costTotal'), rd = getVal('rdCost');
-      return cost > 0 ? (rd / cost * 100).toFixed(2) + '%' : '';
-    })(),
-    rdScore: window._scores.rd,
-    ipClass1: getIntVal('ipClass1'),
-    ipClass2: getIntVal('ipClass2'),
-    ipScore: window._scores.ip,
-    totalScore: window._scores.total,
-    basicAllPass: basicAllPass,
-    hasDirect: hasDirect,
-    riskWarnings: riskItems.join('; '),
-    contactName: document.getElementById('contactName').value.trim(),
-    contactPhone: document.getElementById('contactPhone').value.trim(),
-    contactEmail: document.getElementById('contactEmail').value.trim(),
-    contactTitle: document.getElementById('contactTitle').value.trim(),
-    remark: document.getElementById('remark').value.trim()
-  };
-}
-
-function downloadResult(data) {
-  var json = JSON.stringify(data, null, 2);
-  var blob = new Blob([json], {type: 'application/json'});
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a');
-  a.href = url;
-  a.download = '科技型中小企业自评结果_' + (data.companyName || '未命名') + '_' + new Date().toISOString().slice(0,10) + '.json';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-}
-
-function submitForm() {
-  var data = collectData();
-
-      // 温柔提醒（不强制填写，但建议留下联系方式以便后续服务）
-      if (!data.contactName && !data.contactPhone && !data.companyName) {
-        showToast('请至少填写企业名称或联系方式，以便我们为您提供后续辅导服务', 'warn');
-      }
-
-  // 禁用按钮
-  var btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  btn.textContent = '提交中…';
-  document.getElementById('loadingModal').classList.add('show');
-
-  var xhr = new XMLHttpRequest();
-  // 优先使用 Formspree 提交（填你的 Formspree ID 即可启用）
-  var FORMSPREE_ID = '';
-  var apiUrl = FORMSPREE_ID ? 'https://formspree.io/f/' + FORMSPREE_ID : '/api/submit';
-  xhr.open('POST', apiUrl, true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.timeout = 15000;
-  xhr.onload = function() {
-    document.getElementById('loadingModal').classList.remove('show');
-    btn.disabled = false;
-    btn.textContent = '📩 提交自评结果，获取专业辅导';
-
-    if (xhr.status >= 200 && xhr.status < 300) {
-      var resp = JSON.parse(xhr.responseText);
-      // 成功弹窗 + 摘要
-      var summaryHTML = '<table><tr><td>企业名称：</td><td><strong>' + data.companyName + '</strong></td></tr>' +
-        '<tr><td>总评分：</td><td><strong style="color:' + (data.totalScore >= 60 ? 'var(--success)' : 'var(--danger)') + '">' + data.totalScore + ' 分</strong></td></tr>' +
-        '<tr><td>提交编号：</td><td>' + resp.id + '</td></tr>' +
-        '<tr><td>提交时间：</td><td>' + new Date().toLocaleString('zh-CN') + '</td></tr></table>';
-      document.getElementById('submissionSummary').innerHTML = summaryHTML;
-      document.getElementById('successModal').classList.add('show');
-      showToast('✅ ' + resp.message, 'success');
-    } else {
-      var msg = '提交失败，请稍后重试';
-      try { var r = JSON.parse(xhr.responseText); msg = r.message || msg; } catch(e) {}
-      document.getElementById('errorMsg').textContent = msg;
-      document.getElementById('errorModal').classList.add('show');
-    }
-  };
-  xhr.onerror = function() {
-    document.getElementById('loadingModal').classList.remove('show');
-    btn.disabled = false;
-    btn.textContent = '📩 提交自评结果，获取专业辅导';
-    // 静态托管回退：下载结果文件
-    downloadResult(data);
-    document.getElementById('errorMsg').innerHTML = '当前为静态演示版，自评结果已下载为文件。<br>请将文件发送至我司邮箱，或直接联系我们获取专业辅导。';
-    document.getElementById('errorModal').classList.add('show');
-  };
-  xhr.ontimeout = function() {
-    document.getElementById('loadingModal').classList.remove('show');
-    btn.disabled = false;
-    btn.textContent = '📩 提交自评结果，获取专业辅导';
-    downloadResult(data);
-    document.getElementById('errorMsg').innerHTML = '提交超时，自评结果已下载为文件。<br>请将文件发送至我司邮箱，或直接联系我们获取专业辅导。';
-    document.getElementById('errorModal').classList.add('show');
-  };
-  xhr.send(JSON.stringify(data));
 }
 
 // 初始化
