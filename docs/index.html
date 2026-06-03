@@ -135,14 +135,46 @@
     table { font-size: .8rem; }
     .score-detail { gap: 12px; }
   }
+
+  /* ═══ 打印优化 ═══ */
+  @media print {
+    body { padding: 0; background: #fff; font-size: 11px; line-height: 1.4; }
+    .top-banner, .company-header, .contact-card, .footer { display: none; }
+    .container { max-width: 100%; }
+    .card { box-shadow: none; border: 1px solid #ddd; margin-bottom: 8px; break-inside: avoid; page-break-inside: avoid; }
+    .card-header { padding: 7px 10px; font-size: .9rem; }
+    .card-body { padding: 8px 10px; }
+    .header { padding: 10px 14px; margin: 0 0 10px 0; }
+    .header h1 { font-size: 1.1rem; }
+    .header .subtitle { font-size: .72rem; }
+    .header .deadline-row { margin-top: 4px; }
+    .header .deadline { font-size: .68rem; padding: 2px 8px; }
+    table { font-size: .72rem; }
+    thead th { padding: 4px 6px; }
+    tbody td { padding: 4px 6px; }
+    input, select { font-size: .72rem; padding: 3px 5px; }
+    input.input-num { width: 70px; }
+    .hint { font-size: .65rem; }
+    .score-circle { width: 80px; height: 80px; font-size: 1.6rem; border-width: 3px; }
+    .score-display { padding: 10px; }
+    .score-detail { gap: 14px; margin-top: 8px; }
+    .score-item .val { font-size: 1.1rem; }
+    .score-item .lbl { font-size: .65rem; }
+    .section-desc { font-size: .72rem; margin-bottom: 4px; }
+    .note { font-size: .72rem; padding: 6px 8px; }
+    .verdict { padding: 8px; font-size: .85rem; margin-top: 8px; }
+    h4 { font-size: .85rem; margin: 8px 0 4px; }
+    .btn-row { display: none; }
+    .spinner { display: none; }
+  }
 </style>
 </head>
 <body>
 
 <!-- ═══ 顶部品牌条 ═══ -->
-<div class="top-banner"><span>专业 | 高效 | 值得信赖 — 科技企业一站式政策申报服务</span></div>
+<div class="top-banner"><span>专业 | 高效 | 值得信赖 — 科技企业一站式政策申报服务 | 📞 古先生：15218093468</span></div>
 <div class="company-header">
-  <div class="logo">知</div>
+  <div class="logo">知企</div>
   <div>
     <div class="company-name">广东知企企业管理服务有限公司</div>
     <div class="company-sub">Guangdong Zhiqi Enterprise Management Service Co., Ltd.</div>
@@ -303,7 +335,16 @@
 <div class="card" id="resultCard">
   <div class="card-header"><span class="dot dot-check"></span> 五、自评总结果</div>
   <div class="card-body" id="resultBody">
-    <p style="text-align:center;color:var(--text-secondary);padding:30px;">👆 请先填写上方各栏信息，结果将自动计算显示</p>
+    <div class="score-display">
+      <div class="score-circle score-fail">0</div>
+      <div class="score-label">综合评价预估得分（满分100分）</div>
+      <div class="score-detail">
+        <div class="score-item"><div class="val" style="color:var(--danger)">0</div><div class="lbl">科技人员 / 20分</div></div>
+        <div class="score-item"><div class="val">0</div><div class="lbl">研发投入 / 50分</div></div>
+        <div class="score-item"><div class="val">0</div><div class="lbl">科技成果 / 30分</div></div>
+      </div>
+      <p style="color:var(--text-secondary);font-size:.82rem;margin-top:12px;">👆 请在上方填入企业实际数据，结果将实时更新</p>
+    </div>
   </div>
 </div>
 
@@ -343,6 +384,9 @@
     <p style="text-align:center;margin-top:14px;font-size:.85rem;color:var(--text-secondary);">
       累计服务各级政府部门、企事业单位 <strong style="color:var(--accent);">200+</strong> 家/次 · 覆盖梅州"六县两区" · 核心团队具备 <strong style="color:var(--accent);">4年+</strong> 创客广东大赛协办经验
     </p>
+    <p style="text-align:center;margin-top:8px;font-size:.9rem;">
+      📞 咨询热线：<strong>古先生 15218093468</strong>
+    </p>
   </div>
 </div>
 
@@ -370,7 +414,7 @@
 <div class="card contact-card">
   <div class="card-header"><span class="dot dot-contact"></span> 八、获取免费申报辅导 <span style="font-weight:400;font-size:.78rem;color:var(--text-secondary);">（选填，提交后顾问将在1个工作日内与您联系）</span></div>
   <div class="card-body">
-    <p class="section-desc"><strong>广东知企企业管理服务有限公司</strong>的专业顾问将根据您的自评结果，提供<strong>一对一免费申报辅导</strong>，包括：申报路径规划、材料清单梳理、研发费用归集指导、知识产权布局建议等。</p>
+    <p class="section-desc"><strong>广东知企企业管理服务有限公司</strong>的专业顾问将根据您的自评结果，提供<strong>一对一免费申报辅导</strong>，包括：申报路径规划、材料清单梳理、研发费用归集指导、知识产权布局建议等。<br>📞 也可直接致电咨询：<strong>古先生 15218093468</strong></p>
     <table>
       <tr>
         <td style="width:15%;font-weight:600;">联系人</td>
@@ -398,7 +442,7 @@
       </button>
     </div>
     <p style="text-align:center;font-size:.76rem;color:var(--text-secondary);margin-top:10px;">
-      提交即表示您同意广东知企企业管理服务有限公司收集以上信息用于申报辅导服务
+      本工具不收集企业信息，所有数据仅在您本地浏览器中处理。提交后将下载自评结果文件，请发送至古先生 15218093468 获取专业辅导。
     </p>
   </div>
 </div>
@@ -406,7 +450,7 @@
 <!-- ═══ 底部 ═══ -->
 <div class="footer">
   <p>© 2026 广东知企企业管理服务有限公司 | 科技企业一站式政策申报服务</p>
-  <p style="margin-top:2px;">📍 立足梅州 · 服务广东 | 覆盖"六县两区" | 累计服务企事业单位 200+ 家/次</p>
+  <p style="margin-top:2px;">📍 立足梅州 · 服务广东 | 📞 古先生：15218093468</p>
   <p style="margin-top:4px;color:#94a3b8;">数据依据：工企业函〔2026〕160号 · 国科发政〔2017〕115号 · 国科火字〔2022〕67号</p>
 </div>
 
@@ -419,7 +463,7 @@
 <div class="modal-overlay" id="successModal">
   <div class="modal">
     <h3>✅ 提交成功！</h3>
-    <p>您的自评结果已成功发送。广东知企的专业顾问将在<strong>1个工作日内</strong>与您联系，为您提供免费的申报评估与辅导。</p>
+    <p>您的自评结果已成功发送。广东知企的专业顾问将在<strong>1个工作日内</strong>与您联系，为您提供免费的申报评估与辅导。<br>如需急询，请直接致电：<strong>古先生 15218093468</strong></p>
     <div id="submissionSummary" class="submission-summary"></div>
     <button class="btn btn-primary" style="margin-top:14px;" onclick="document.getElementById('successModal').classList.remove('show')">确 定</button>
   </div>
@@ -428,7 +472,7 @@
 <div class="modal-overlay" id="errorModal">
   <div class="modal">
     <h3>⚠️ 提交失败</h3>
-    <p id="errorMsg">网络异常，请稍后重试。</p>
+    <p id="errorMsg">提交失败，自评结果已下载为文件。请将文件发送给我们或直接致电：<strong>古先生 15218093468</strong></p>
     <button class="btn btn-primary" style="margin-top:14px;" onclick="document.getElementById('errorModal').classList.remove('show')">关 闭</button>
   </div>
 </div>
@@ -755,7 +799,10 @@ function submitForm() {
   document.getElementById('loadingModal').classList.add('show');
 
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/api/submit', true);
+  // 优先使用 Formspree 提交（填你的 Formspree ID 即可启用）
+  var FORMSPREE_ID = '';
+  var apiUrl = FORMSPREE_ID ? 'https://formspree.io/f/' + FORMSPREE_ID : '/api/submit';
+  xhr.open('POST', apiUrl, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.timeout = 15000;
   xhr.onload = function() {
