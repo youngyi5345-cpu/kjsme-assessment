@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 // ── 中间件 ──
 app.use(express.json({ limit: '50kb' }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'docs')));
 
 // ── 数据目录 ──
 const DATA_DIR = path.join(__dirname, 'data');
