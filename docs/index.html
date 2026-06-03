@@ -5,173 +5,74 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2026年度科技型中小企业申报自评表 - 广东知企企业管理服务有限公司</title>
 <style>
-  :root {
-    --bg: #f4f6f9; --card-bg: #fff; --text: #2c3e50; --text-secondary: #5a6c7d;
-    --border: #e0e4e8; --accent: #1a56db; --accent-light: #eff6ff;
-    --success: #16a34a; --success-light: #f0fdf4;
-    --warning: #ea580c; --warning-light: #fff7ed;
-    --danger: #dc2626; --danger-light: #fef2f2;
-    --gold: #b45309; --gold-light: #fffbeb;
-    --radius: 10px; --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px; }
-
-  /* ── 顶部品牌条 ── */
-  .top-banner { background: linear-gradient(135deg, #0f1d3a 0%, #1a3f6b 50%, #1a56db 100%); color: #fff; text-align: center; padding: 10px 20px; font-size: .82rem; letter-spacing: 1px; }
-  .top-banner span { opacity: .8; }
-  .company-header { background: #fff; border-bottom: 1px solid var(--border); padding: 16px 32px; display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
-  .company-header .logo { width: auto; min-width: 60px; height: 44px; padding: 0 12px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.3rem; font-weight: 700; flex-shrink: 0; }
-  .company-header .company-name { font-size: 1.25rem; font-weight: 700; color: #1a3f6b; }
-  .company-header .company-sub { font-size: .78rem; color: var(--text-secondary); }
-
-  .container { max-width: 960px; margin: 0 auto; }
-
-  /* header */
-  .header { background: linear-gradient(135deg, #0f1d3a 0%, #1a56db 100%); color: #fff; padding: 28px 32px; border-radius: var(--radius); margin: 20px 0; box-shadow: 0 2px 8px rgba(26,86,219,.25); }
-  .header h1 { font-size: 1.5rem; margin-bottom: 6px; }
-  .header .subtitle { opacity: .85; font-size: .85rem; }
-  .header .deadline-row { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
-  .header .deadline { display: inline-block; background: rgba(255,255,255,.15); padding: 4px 12px; border-radius: 20px; font-size: .8rem; }
-
-  /* cards */
-  .card { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 16px; overflow: hidden; }
-  .card-header { padding: 14px 20px; border-bottom: 1px solid var(--border); font-weight: 700; font-size: 1.02rem; display: flex; align-items: center; gap: 8px; }
-  .card-header .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
-  .dot-must { background: var(--danger); } .dot-score { background: var(--accent); }
-  .dot-tong { background: var(--success); } .dot-check { background: var(--warning); }
-  .dot-contact { background: #7c3aed; }
-  .card-body { padding: 16px 20px; }
-
-  /* tables */
-  table { width: 100%; border-collapse: collapse; font-size: .89rem; }
-  thead th { background: #f8fafc; text-align: left; padding: 9px 12px; border-bottom: 2px solid var(--border); font-weight: 600; color: var(--text-secondary); white-space: nowrap; }
-  tbody td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:hover { background: #fafbfc; }
-
-  /* inputs & selects */
-  input[type="number"], input[type="text"], input[type="tel"], input[type="email"], select, textarea {
-    width: 100%; padding: 8px 10px; border: 1.5px solid var(--border); border-radius: 6px;
-    font-size: .88rem; font-family: inherit; transition: border-color .15s; background: #fff;
-  }
-  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(26,86,219,.12); }
-  input.input-num { width: 110px; text-align: right; }
-  select { cursor: pointer; }
-
-  /* badges */
-  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: .78rem; font-weight: 600; white-space: nowrap; }
-  .badge-pass { background: var(--success-light); color: var(--success); }
-  .badge-fail { background: var(--danger-light); color: var(--danger); }
-  .badge-warn { background: var(--warning-light); color: var(--warning); }
-  .badge-info { background: var(--accent-light); color: var(--accent); }
-
-  /* score display */
-  .score-display { text-align: center; padding: 20px; }
-  .score-circle { display: inline-flex; align-items: center; justify-content: center; width: 130px; height: 130px; border-radius: 50%; font-size: 2.6rem; font-weight: 800; }
-  .score-pass { background: var(--success-light); color: var(--success); border: 5px solid var(--success); }
-  .score-fail { background: var(--danger-light); color: var(--danger); border: 5px solid var(--danger); }
-  .score-label { margin-top: 8px; font-size: .9rem; color: var(--text-secondary); }
-  .score-detail { display: flex; justify-content: center; gap: 28px; margin-top: 14px; flex-wrap: wrap; }
-  .score-item { text-align: center; }
-  .score-item .val { font-size: 1.5rem; font-weight: 700; }
-  .score-item .lbl { font-size: .78rem; color: var(--text-secondary); }
-
-  .verdict { text-align: center; padding: 14px; border-radius: 8px; font-weight: 700; font-size: 1.05rem; margin-top: 14px; }
-  .verdict-pass { background: var(--success-light); color: var(--success); }
-  .verdict-fail { background: var(--danger-light); color: var(--danger); }
-  .verdict-direct { background: #dbeafe; color: #1d4ed8; }
-
-  .hint { font-size: .78rem; color: var(--text-secondary); margin-top: 4px; }
-  .section-desc { font-size: .84rem; color: var(--text-secondary); margin-bottom: 10px; }
-  .note { background: var(--gold-light); border-left: 3px solid var(--gold); padding: 10px 14px; margin-top: 12px; border-radius: 0 6px 6px 0; font-size: .84rem; }
-  .note strong { color: var(--gold); }
-
-  /* buttons */
-  .btn { display: inline-block; padding: 10px 28px; border-radius: 8px; font-size: .95rem; font-weight: 600; cursor: pointer; border: none; transition: all .15s; font-family: inherit; }
-  .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 2px 6px rgba(26,86,219,.3); }
-  .btn-primary:hover { background: #1a4bc4; transform: translateY(-1px); box-shadow: 0 3px 10px rgba(26,86,219,.4); }
-  .btn-primary:disabled { background: #94a3b8; cursor: not-allowed; box-shadow: none; transform: none; }
-  .btn-outline { background: #fff; color: var(--accent); border: 2px solid var(--accent); }
-  .btn-outline:hover { background: var(--accent-light); }
-  .btn-row { display: flex; gap: 12px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
-
-  /* toast */
-  .toast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%); z-index: 9999; padding: 14px 24px; border-radius: 8px; font-weight: 600; font-size: .92rem; display: none; box-shadow: 0 4px 16px rgba(0,0,0,.15); }
-  .toast-success { background: #065f46; color: #fff; }
-  .toast-error { background: #991b1b; color: #fff; }
-  .toast-warn { background: #b45309; color: #fff; }
-
-  /* required asterisk */
-  .required { color: var(--danger); }
-
-  /* footer */
-  .footer { text-align: center; padding: 20px; font-size: .8rem; color: var(--text-secondary); }
-  .footer a { color: var(--accent); text-decoration: none; }
-
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 9990; align-items: center; justify-content: center; }
-  .modal-overlay.show { display: flex; }
-  .modal { background: #fff; border-radius: var(--radius); padding: 28px; max-width: 480px; width: 90%; text-align: center; box-shadow: 0 8px 30px rgba(0,0,0,.2); }
-  .modal h3 { margin-bottom: 10px; }
-  .modal p { color: var(--text-secondary); font-size: .9rem; margin-bottom: 18px; }
-  .spinner { display: inline-block; width: 28px; height: 28px; border: 3px solid #e0e4e8; border-top-color: var(--accent); border-radius: 50%; animation: spin .7s linear infinite; margin-bottom: 8px; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .submission-summary { background: #f8fafc; border-radius: 8px; padding: 16px; margin-top: 12px; font-size: .85rem; }
-  .submission-summary table td { padding: 4px 10px; border: none; }
-  .submission-summary table td:first-child { color: var(--text-secondary); white-space: nowrap; }
-
-  /* ── 联系方式卡片特殊样式 ── */
-  .contact-card .card-header { background: #f5f3ff; }
-  .contact-card input { border-color: #d4c5f9; }
-  .contact-card input:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,.1); }
-
-  @media (max-width: 700px) {
-    body { padding: 6px; }
-    .company-header { padding: 12px 16px; }
-    .company-header .company-name { font-size: 1.05rem; }
-    .header { padding: 18px 16px; }
-    .header h1 { font-size: 1.2rem; }
-    table { font-size: .8rem; }
-    .score-detail { gap: 12px; }
-  }
-
-  /* ═══ 打印优化 ═══ */
-  @media print {
-    body { padding: 0; background: #fff; font-size: 11px; line-height: 1.4; }
-    .top-banner, .company-header, .contact-card, .footer { display: none; }
-    .container { max-width: 100%; }
-    .card { box-shadow: none; border: 1px solid #ddd; margin-bottom: 8px; break-inside: avoid; page-break-inside: avoid; }
-    .card-header { padding: 7px 10px; font-size: .9rem; }
-    .card-body { padding: 8px 10px; }
-    .header { padding: 10px 14px; margin: 0 0 10px 0; }
-    .header h1 { font-size: 1.1rem; }
-    .header .subtitle { font-size: .72rem; }
-    .header .deadline-row { margin-top: 4px; }
-    .header .deadline { font-size: .68rem; padding: 2px 8px; }
-    table { font-size: .72rem; }
-    thead th { padding: 4px 6px; }
-    tbody td { padding: 4px 6px; }
-    input, select { font-size: .72rem; padding: 3px 5px; }
-    input.input-num { width: 70px; }
-    .hint { font-size: .65rem; }
-    .score-circle { width: 80px; height: 80px; font-size: 1.6rem; border-width: 3px; }
-    .score-display { padding: 10px; }
-    .score-detail { gap: 14px; margin-top: 8px; }
-    .score-item .val { font-size: 1.1rem; }
-    .score-item .lbl { font-size: .65rem; }
-    .section-desc { font-size: .72rem; margin-bottom: 4px; }
-    .note { font-size: .72rem; padding: 6px 8px; }
-    .verdict { padding: 8px; font-size: .85rem; margin-top: 8px; }
-    h4 { font-size: .85rem; margin: 8px 0 4px; }
-    .btn-row { display: none; }
-    .spinner { display: none; }
-  }
+  :root { --bg:#f4f6f9; --card-bg:#fff; --text:#2c3e50; --text-secondary:#5a6c7d; --border:#e0e4e8; --accent:#1a56db; --accent-light:#eff6ff; --success:#16a34a; --success-light:#f0fdf4; --warning:#ea580c; --warning-light:#fff7ed; --danger:#dc2626; --danger-light:#fef2f2; --gold:#b45309; --gold-light:#fffbeb; --radius:10px; --shadow:0 1px 3px rgba(0,0,0,.06); }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:20px}
+  .top-banner{background:linear-gradient(135deg,#0f1d3a 0%,#1a3f6b 50%,#1a56db 100%);color:#fff;text-align:center;padding:10px 20px;font-size:.82rem;letter-spacing:1px}
+  .top-banner span{opacity:.85}
+  .company-header{background:#fff;border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+  .company-header .logo{width:auto;min-width:64px;height:44px;padding:0 14px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;font-weight:700;flex-shrink:0}
+  .company-header .company-name{font-size:1.25rem;font-weight:700;color:#1a3f6b}
+  .company-header .company-sub{font-size:.78rem;color:var(--text-secondary)}
+  .container{max-width:960px;margin:0 auto}
+  .header{background:linear-gradient(135deg,#0f1d3a 0%,#1a56db 100%);color:#fff;padding:28px 32px;border-radius:var(--radius);margin:20px 0;box-shadow:0 2px 8px rgba(26,86,219,.25)}
+  .header h1{font-size:1.5rem;margin-bottom:6px}
+  .header .subtitle{opacity:.85;font-size:.85rem}
+  .header .deadline-row{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+  .header .deadline{display:inline-block;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:20px;font-size:.8rem}
+  .card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:16px;overflow:hidden}
+  .card-header{padding:14px 20px;border-bottom:1px solid var(--border);font-weight:700;font-size:1.02rem;display:flex;align-items:center;gap:8px}
+  .card-header .dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
+  .dot-must{background:var(--danger)} .dot-score{background:var(--accent)} .dot-tong{background:var(--success)} .dot-check{background:var(--warning)}
+  .card-body{padding:16px 20px}
+  table{width:100%;border-collapse:collapse;font-size:.89rem}
+  thead th{background:#f8fafc;text-align:left;padding:9px 12px;border-bottom:2px solid var(--border);font-weight:600;color:var(--text-secondary);white-space:nowrap}
+  tbody td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+  tbody tr:last-child td{border-bottom:none}
+  input,select,textarea{width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:6px;font-size:.88rem;font-family:inherit;transition:border-color .15s;background:#fff}
+  input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,86,219,.12)}
+  input.input-num{width:110px;text-align:right}
+  select{cursor:pointer}
+  .badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.78rem;font-weight:600;white-space:nowrap}
+  .badge-pass{background:var(--success-light);color:var(--success)}
+  .badge-fail{background:var(--danger-light);color:var(--danger)}
+  .badge-warn{background:var(--warning-light);color:var(--warning)}
+  .badge-info{background:var(--accent-light);color:var(--accent)}
+  .badge-direct{background:#dbeafe;color:#1d4ed8}
+  .score-display{text-align:center;padding:20px}
+  .score-circle{display:inline-flex;align-items:center;justify-content:center;width:140px;height:140px;border-radius:50%;font-size:3rem;font-weight:800;border:6px solid}
+  .score-circle.s-pass{background:var(--success-light);color:var(--success);border-color:var(--success)}
+  .score-circle.s-fail{background:var(--danger-light);color:var(--danger);border-color:var(--danger)}
+  .score-circle.s-direct{background:#dbeafe;color:#1d4ed8;border-color:#1d4ed8}
+  .score-label{margin-top:8px;font-size:.9rem;color:var(--text-secondary)}
+  .score-detail{display:flex;justify-content:center;gap:28px;margin-top:14px;flex-wrap:wrap}
+  .score-item{text-align:center}
+  .score-item .val{font-size:1.6rem;font-weight:700}
+  .score-item .lbl{font-size:.78rem;color:var(--text-secondary)}
+  .verdict{text-align:center;padding:14px;border-radius:8px;font-weight:700;font-size:1.05rem;margin-top:14px}
+  .v-pass{background:var(--success-light);color:var(--success)}
+  .v-fail{background:var(--danger-light);color:var(--danger)}
+  .v-direct{background:#dbeafe;color:#1d4ed8}
+  .hint{font-size:.78rem;color:var(--text-secondary);margin-top:4px}
+  .section-desc{font-size:.84rem;color:var(--text-secondary);margin-bottom:10px}
+  .note{background:var(--gold-light);border-left:3px solid var(--gold);padding:10px 14px;margin-top:12px;border-radius:0 6px 6px 0;font-size:.84rem}
+  .note strong{color:var(--gold)}
+  .btn{display:inline-block;padding:10px 28px;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;border:none;transition:all .15s;font-family:inherit}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 2px 6px rgba(26,86,219,.3)}
+  .btn-primary:hover{background:#1a4bc4;transform:translateY(-1px)}
+  .btn-outline{background:#fff;color:var(--accent);border:2px solid var(--accent)}
+  .btn-outline:hover{background:var(--accent-light)}
+  .btn-row{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+  .footer{text-align:center;padding:20px;font-size:.8rem;color:var(--text-secondary)}
+  .footer a{color:var(--accent);text-decoration:none}
+  .direct-list{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.83rem;color:var(--text-secondary);margin-bottom:14px;line-height:1.8}
+  .direct-list li{margin-left:18px}
+  @media(max-width:700px){body{padding:6px}.company-header{padding:12px 16px;text-align:center}.company-header .company-name{font-size:1.05rem}.header{padding:18px 16px}.header h1{font-size:1.2rem}table{font-size:.8rem}.score-detail{gap:12px}}
+  @media print{body{padding:0;background:#fff;font-size:11px;line-height:1.4}.top-banner,.company-header,.footer{display:none}.container{max-width:100%}.card{box-shadow:none;border:1px solid #ddd;margin-bottom:8px;break-inside:avoid}.card-header{padding:7px 10px;font-size:.9rem}.card-body{padding:8px 10px}.header{padding:10px 14px;margin:0 0 10px 0}.header h1{font-size:1.1rem}.header .subtitle{font-size:.72rem}.header .deadline-row{margin-top:4px}.header .deadline{font-size:.68rem;padding:2px 8px}table{font-size:.72rem}thead th{padding:4px 6px}tbody td{padding:4px 6px}input,select{font-size:.72rem;padding:3px 5px}input.input-num{width:70px}.hint{font-size:.65rem}.score-circle{width:90px;height:90px;font-size:1.8rem;border-width:4px}.score-display{padding:10px}.score-detail{gap:14px;margin-top:8px}.score-item .val{font-size:1.2rem}.score-item .lbl{font-size:.65rem}.section-desc{font-size:.72rem;margin-bottom:4px}.note{font-size:.72rem;padding:6px 8px}.verdict{padding:8px;font-size:.85rem;margin-top:8px}h4{font-size:.85rem;margin:8px 0 4px}.btn-row{display:none}}
 </style>
 </head>
 <body>
 
-<!-- ═══ 顶部品牌条 ═══ -->
 <div class="top-banner"><span>专业 | 高效 | 值得信赖 — 科技企业一站式政策申报服务 | 📞 古先生：15218093468</span></div>
 <div class="company-header">
   <div class="logo">知企</div>
@@ -195,27 +96,12 @@
 
 <!-- ═══ 一、企业基本信息 ═══ -->
 <div class="card">
-  <div class="card-header">📝 一、企业基本信息 <span style="font-weight:400;font-size:.78rem;color:var(--text-secondary);">（选填，仅用于生成自评报告）</span></div>
+  <div class="card-header">📝 一、企业基本信息 <span style="font-weight:400;font-size:.78rem;color:var(--text-secondary);">（选填）</span></div>
   <div class="card-body">
     <table>
-      <tr>
-        <td style="width:18%;font-weight:600;">企业名称</td>
-        <td style="width:32%;"><input type="text" id="companyName" placeholder="选填"></td>
-        <td style="width:18%;font-weight:600;">统一社会信用代码</td>
-        <td style="width:32%;"><input type="text" id="creditCode" placeholder="选填"></td>
-      </tr>
-      <tr>
-        <td style="font-weight:600;">注册地</td>
-        <td><input type="text" id="regLocation" placeholder="省/市/区"></td>
-        <td style="font-weight:600;">成立日期</td>
-        <td><input type="text" id="establishDate" placeholder="如：2020-05-01"></td>
-      </tr>
-      <tr>
-        <td style="font-weight:600;">所属行业</td>
-        <td><input type="text" id="industry" placeholder="如：软件和信息技术服务业"></td>
-        <td style="font-weight:600;">登记注册类型</td>
-        <td><select id="regType"><option value="">请选择</option><option>有限责任公司</option><option>股份有限公司</option><option>外商独资</option><option>中外合资</option><option>其他</option></select></td>
-      </tr>
+      <tr><td style="width:18%;font-weight:600;">企业名称</td><td style="width:32%;"><input type="text" id="companyName" placeholder="选填"></td><td style="width:18%;font-weight:600;">统一社会信用代码</td><td style="width:32%;"><input type="text" id="creditCode" placeholder="选填"></td></tr>
+      <tr><td style="font-weight:600;">注册地</td><td><input type="text" id="regLocation" placeholder="省/市/区"></td><td style="font-weight:600;">成立日期</td><td><input type="text" id="establishDate" placeholder="如：2020-05-01"></td></tr>
+      <tr><td style="font-weight:600;">所属行业</td><td><input type="text" id="industry" placeholder="如：软件和信息技术服务业"></td><td style="font-weight:600;">登记注册类型</td><td><select id="regType"><option value="">请选择</option><option>有限责任公司</option><option>股份有限公司</option><option>其他</option></select></td></tr>
     </table>
   </div>
 </div>
@@ -225,32 +111,26 @@
   <div class="card-header"><span class="dot dot-must"></span> 二、基本条件核查（须全部满足）</div>
   <div class="card-body">
     <table id="basicTable">
-      <thead><tr><th style="width:4%;">#</th><th style="width:42%;">条件要求</th><th style="width:28%;">企业实际情况</th><th style="width:16%;">要求</th><th style="width:10%;">判定</th></tr></thead>
+      <thead><tr><th style="width:4%;">#</th><th style="width:46%;">条件要求</th><th style="width:30%;">企业实际情况</th><th style="width:20%;">判定</th></tr></thead>
       <tbody>
         <tr><td>1</td><td>在中国境内（不含港澳台）注册的<strong>居民企业</strong></td>
-          <td><select class="basic-select" data-idx="0"><option value="">请选择</option><option value="1">是，境内居民企业</option><option value="0">否</option></select></td>
-          <td>必须为"是"</td><td><span class="badge badge-warn" id="basic-badge-0">待确认</span></td></tr>
+          <td><select id="bc0"><option value="">请选择</option><option value="1">✅ 是</option><option value="0">❌ 否</option></select></td>
+          <td><span class="badge badge-warn" id="bb0">待确认</span></td></tr>
         <tr><td>2</td><td><strong>职工总数 ≤ 500人</strong></td>
           <td><input type="number" id="empCount" class="input-num" placeholder="人"> 人</td>
-          <td>≤ 500人</td><td><span class="badge badge-warn" id="basic-badge-1">待确认</span></td></tr>
+          <td><span class="badge badge-warn" id="bb1">待确认</span></td></tr>
         <tr><td>3</td><td><strong>年销售收入 ≤ 2亿元</strong></td>
           <td><input type="number" id="revenue" class="input-num" placeholder="万元"> 万元</td>
-          <td>≤ 20,000万</td><td><span class="badge badge-warn" id="basic-badge-2">待确认</span></td></tr>
+          <td><span class="badge badge-warn" id="bb2">待确认</span></td></tr>
         <tr><td>4</td><td><strong>资产总额 ≤ 2亿元</strong></td>
           <td><input type="number" id="assets" class="input-num" placeholder="万元"> 万元</td>
-          <td>≤ 20,000万</td><td><span class="badge badge-warn" id="basic-badge-3">待确认</span></td></tr>
-        <tr><td>5</td><td>行业不属于<strong>限制类、淘汰类</strong>，不属不适用税前加计扣除政策的行业</td>
-          <td><select class="basic-select" data-idx="4"><option value="">请选择</option><option value="1">不属于限制/淘汰类</option><option value="0">属于限制/淘汰类</option></select></td>
-          <td>须不属于</td><td><span class="badge badge-warn" id="basic-badge-4">待确认</span></td></tr>
-        <tr><td>6</td><td>上年及当年<strong>未发生重大安全/质量事故、严重环境违法、科研严重失信</strong>，未列入经营异常/严重失信名单</td>
-          <td><select class="basic-select" data-idx="5"><option value="">请选择</option><option value="1">无上述不良记录</option><option value="0">存在相关记录</option></select></td>
-          <td>须无不良记录</td><td><span class="badge badge-warn" id="basic-badge-5">待确认</span></td></tr>
-        <tr><td>7</td><td>会计核算健全，实行<strong>查账征收</strong></td>
-          <td><select class="basic-select" data-idx="6"><option value="">请选择</option><option value="1">是，查账征收</option><option value="0">否，核定征收</option></select></td>
-          <td>须为查账征收</td><td><span class="badge badge-warn" id="basic-badge-6">待确认</span></td></tr>
+          <td><span class="badge badge-warn" id="bb3">待确认</span></td></tr>
+        <tr><td>5</td><td>行业不属于限制类、淘汰类，不属不适用税前加计扣除政策的行业；<br>上年及当年<strong>未发生重大安全/质量事故、严重环境违法、科研严重失信</strong>；<br>未列入经营异常/严重失信名单，会计核算健全，实行<strong>查账征收</strong></td>
+          <td><select id="bc4"><option value="">请选择</option><option value="1">✅ 是，均符合</option><option value="0">❌ 否，存在不符</option></select></td>
+          <td><span class="badge badge-warn" id="bb4">待确认</span></td></tr>
       </tbody>
     </table>
-    <div id="basicVerdict" class="verdict" style="display:none;"></div>
+    <div id="basicVerdict" style="text-align:center;padding:12px;font-weight:700;font-size:1rem;display:none;"></div>
   </div>
 </div>
 
@@ -258,8 +138,8 @@
 <div class="card">
   <div class="card-header"><span class="dot dot-tong"></span> 三、直通车条件</div>
   <div class="card-body">
-    <p class="section-desc">若已满足基本条件1-7，且符合以下<strong>任一项</strong>，可跳过评分直接认定为科技型中小企业：</p>
-    <ol style="font-size:.85rem;color:var(--text-secondary);margin:0 0 12px 18px;line-height:1.8;">
+    <p class="section-desc">若已满足基本条件，且符合以下<strong>任一项</strong>，可跳过评分直接认定为科技型中小企业：</p>
+    <ol style="font-size:.84rem;color:var(--text-secondary);margin:0 0 14px 20px;line-height:2;">
       <li>拥有有效期内<strong>高新技术企业资格证书</strong></li>
       <li>近五年内获得过<strong>国家级科技奖励</strong>（排名前三）</li>
       <li>拥有经认定的<strong>省部级以上研发机构</strong></li>
@@ -268,8 +148,8 @@
     </ol>
     <table>
       <tr>
-        <td style="width:30%;font-weight:600;">是否满足以上条件之一？</td>
-        <td style="width:30%;"><select id="directPass" onchange="recalcAll()"><option value="">请选择</option><option value="1">是，满足</option><option value="0">否，不满足</option></select></td>
+        <td style="width:28%;font-weight:600;">企业情况：</td>
+        <td style="width:35%;"><select id="directPass"><option value="">请选择</option><option value="1">✅ 满足其中1项以上</option><option value="0">❌ 不满足</option></select></td>
         <td><span id="directVerdict" style="font-weight:600;"></span></td>
       </tr>
     </table>
@@ -278,35 +158,30 @@
 
 <!-- ═══ 四、评分指标 ═══ -->
 <div class="card">
-  <div class="card-header"><span class="dot dot-score"></span> 四、综合评价打分（满分100分，≥60分且科技人员≠0为合格）</div>
+  <div class="card-header"><span class="dot dot-score"></span> 四、综合评价打分 <span style="font-weight:400;font-size:.78rem;color:var(--text-secondary);">（满分100分，≥60分且科技人员≠0为合格）</span></div>
   <div class="card-body">
 
-    <!-- 4.1 科技人员 -->
     <h4 style="margin-bottom:8px;">指标一：科技人员占比（满分20分）<span style="color:var(--danger);font-size:.75rem;"> ⚠ 不得为0分</span></h4>
     <table>
-      <tr><td style="width:18%;font-weight:600;">职工总数</td><td style="width:32%;" id="empDisplay">—</td>
-        <td style="width:18%;font-weight:600;">科技人员数</td><td><input type="number" id="techStaff" class="input-num" placeholder="人"> 人</td></tr>
-      <tr><td style="font-weight:600;">科技人员占比</td><td><strong id="techRatio" style="font-size:1.05rem;">—</strong></td>
-        <td style="font-weight:600;">获分</td><td><strong id="techScore" style="font-size:1.05rem;">—</strong> / 20</td></tr>
+      <tr><td style="width:18%;font-weight:600;">科技人员数</td><td><input type="number" id="techStaff" class="input-num" placeholder="人"> 人</td>
+        <td style="width:18%;font-weight:600;">占比</td><td><strong id="techRatio">—</strong></td>
+        <td style="width:18%;font-weight:600;">得分</td><td><strong id="techScore">—</strong> / 20</td></tr>
     </table>
     <p class="hint">≥30%=20分 | 25-30%=16 | 20-25%=12 | 15-20%=8 | 10-15%=4 | &lt;10%=0</p>
 
-    <!-- 4.2 研发投入 -->
     <h4 style="margin:16px 0 8px;">指标二：研发投入指标（满分50分）</h4>
     <table>
-      <tr><td style="width:18%;font-weight:600;">销售收入</td><td style="width:32%;" id="revDisplay">—</td>
-        <td style="width:18%;font-weight:600;">成本费用总额</td><td><input type="number" id="costTotal" class="input-num" placeholder="万元"> 万元</td></tr>
-      <tr><td style="font-weight:600;">研发费用总额</td><td><input type="number" id="rdCost" class="input-num" placeholder="万元"> 万元</td>
-        <td style="font-weight:600;">核算方式</td><td><select id="rdMethod" onchange="recalcAll()"><option value="both">取两者较高分</option><option value="revenue">按销售收入占比</option><option value="cost">按成本费用占比</option></select></td></tr>
+      <tr><td style="width:18%;font-weight:600;">成本费用总额</td><td><input type="number" id="costTotal" class="input-num" placeholder="万元"> 万元</td>
+        <td style="width:18%;font-weight:600;">研发费用总额</td><td><input type="number" id="rdCost" class="input-num" placeholder="万元"> 万元</td>
+        <td style="width:18%;font-weight:600;">核算方式</td><td><select id="rdMethod"><option value="both">取较高分</option><option value="revenue">按收入占比</option><option value="cost">按成本占比</option></select></td></tr>
     </table>
     <table style="margin-top:8px;">
-      <tr><td width="150">研发占销售收入比</td><td id="rdRevRatio">—</td><td>得分</td><td id="rdRevScore">—</td></tr>
+      <tr><td style="width:25%;">研发占销售收入比</td><td id="rdRevRatio">—</td><td>得分</td><td id="rdRevScore">—</td></tr>
       <tr><td>研发占成本费用比</td><td id="rdCostRatio">—</td><td>得分</td><td id="rdCostScore">—</td></tr>
-      <tr style="background:#f8fafc;font-weight:700;"><td>本项最终得分</td><td colspan="2"></td><td><span id="rdFinalScore" style="font-size:1.1rem;">—</span> / 50</td></tr>
+      <tr style="background:#f8fafc;font-weight:700;"><td>本项最终得分</td><td colspan="2"></td><td><span id="rdFinalScore">—</span> / 50</td></tr>
     </table>
     <p class="hint">≥6%=50分 | 5-6%=40 | 4-5%=30 | 3-4%=20 | 2-3%=10 | &lt;2%=0</p>
 
-    <!-- 4.3 科技成果 -->
     <h4 style="margin:16px 0 8px;">指标三：科技成果指标（满分30分）</h4>
     <table>
       <thead><tr><th>知识产权类型</th><th>等级</th><th>企业拥有数量</th><th>说明</th></tr></thead>
@@ -319,74 +194,55 @@
           <td style="font-size:.78rem;color:var(--text-secondary);">实用新型专利、外观设计专利、软著等</td></tr>
       </tbody>
     </table>
-    <p style="margin-top:6px;font-weight:600;">本项得分：<span id="ipScore" style="font-size:1.1rem;">—</span> / 30</p>
+    <p style="margin-top:6px;font-weight:600;">本项得分：<span id="ipScore">—</span> / 30</p>
     <p class="hint">1项+ Ⅰ类=30分 | 4项+ Ⅱ类=24 | 3项Ⅱ类=18 | 2项Ⅱ类=12 | 1项Ⅱ类=6 | 0项=0</p>
+
     <div class="btn-row">
-      <button class="btn btn-primary" onclick="recalcAll()" style="padding:12px 40px;font-size:1rem;">📊 计算评分</button>
+      <button class="btn btn-primary" id="calcBtn" onclick="doCalc()" style="padding:14px 50px;font-size:1.1rem;">📊 计算评分</button>
     </div>
   </div>
 </div>
 
-<!-- ═══ 五、总评结果 ═══ -->
-<!-- ═══ 五、关于广东知企 ═══ -->
-<div class="card" style="border-left: 4px solid var(--accent);">
-  <div class="card-header" style="background:#f8faff;">
-    🏢 关于广东知企 — 您身边的政策申报专家
-  </div>
-  <div class="card-body">
-    <p style="font-size:.9rem;margin-bottom:14px;line-height:1.8;">
-      广东知企企业管理服务有限公司是一家专注于<strong>政策资源整合与企业发展赋能</strong>的专业咨询服务机构，长期服务于大中小型企业、创新型企业及科研机构，提供"<strong>政策申报 + 管理提升 + 项目落地</strong>"一体化解决方案，助力企业精准享受政策红利，实现高质量可持续发展。
-    </p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;">
-      <div style="background:#f8fafc;border-radius:8px;padding:14px;">
-        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px;">📋 政策申报与资质认定</div>
-        <div style="font-size:.8rem;color:var(--text-secondary);line-height:1.6;">高新技术企业 · 专精特新 · 科技型中小企业 · 工程技术研究中心 · 知识产权示范企业等核心资质培育与认定，精准匹配申报标准，全程专人跟进。</div>
-      </div>
-      <div style="background:#f8fafc;border-radius:8px;padding:14px;">
-        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px;">💡 知识产权与成果转化</div>
-        <div style="font-size:.8rem;color:var(--text-secondary);line-height:1.6;">专利 · 商标 · 著作权全链条服务，涵盖布局规划、申请实施、风险防控、转让许可、战略规划及成果转化支持，助力构建技术壁垒。</div>
-      </div>
-      <div style="background:#f8fafc;border-radius:8px;padding:14px;">
-        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px;">📊 企业管理提升咨询</div>
-        <div style="font-size:.8rem;color:var(--text-secondary);line-height:1.6;">组织架构优化 · 绩效激励体系设计 · 流程制度建设 · 经营分析体系搭建 · 研发费用辅助账规范，推动管理规范化与精细化运营。</div>
-      </div>
-      <div style="background:#f8fafc;border-radius:8px;padding:14px;">
-        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px;">📝 政务与项目文书服务</div>
-        <div style="font-size:.8rem;color:var(--text-secondary);line-height:1.6;">可行性研究报告 · 项目申报书 · 申请报告 · 汇报材料 · 工作总结 · 发展规划等高质量文书，符合政府评审逻辑与政策导向。</div>
-      </div>
-    </div>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;padding:14px;background:linear-gradient(135deg,#eff6ff 0%,#f0fdf4 100%);border-radius:8px;">
-      <div style="flex:1;min-width:200px;"><strong style="color:var(--accent);">✅ 政策研究能力突出</strong><br><span style="font-size:.8rem;color:var(--text-secondary);">长期跟踪国家及地方产业政策，精准匹配与落地转化</span></div>
-      <div style="flex:1;min-width:200px;"><strong style="color:var(--accent);">✅ 项目实操经验丰富</strong><br><span style="font-size:.8rem;color:var(--text-secondary);">深度参与各类资质认定全过程，熟悉评审逻辑与验收规范</span></div>
-      <div style="flex:1;min-width:200px;"><strong style="color:var(--accent);">✅ 全链条综合服务</strong><br><span style="font-size:.8rem;color:var(--text-secondary);">评估→策划→申报→实施→验收，一站式赋能体系</span></div>
-      <div style="flex:1;min-width:200px;"><strong style="color:var(--accent);">✅ 定制化服务能力</strong><br><span style="font-size:.8rem;color:var(--text-secondary);">拒绝模板化操作，针对性提升项目成功率</span></div>
-    </div>
-    <p style="text-align:center;margin-top:14px;font-size:.85rem;color:var(--text-secondary);">
-      累计服务各级政府部门、企事业单位 <strong style="color:var(--accent);">200+</strong> 家/次 · 覆盖梅州"六县两区" · 核心团队具备 <strong style="color:var(--accent);">4年+</strong> 创客广东大赛协办经验
-    </p>
-    <p style="text-align:center;margin-top:8px;font-size:.9rem;">
-      📞 咨询热线：<strong>古先生 15218093468</strong>
-    </p>
-  </div>
-</div>
-
-<!-- ═══ 六、核查风险 ═══ -->
+<!-- ═══ 五、核查风险 ═══ -->
 <div class="card">
-  <div class="card-header">⚠️ 六、2026年度实地核查风险自查</div>
+  <div class="card-header">⚠️ 五、2026年度实地核查风险自查</div>
   <div class="card-body">
     <p class="section-desc">以下类型企业<strong>必须接受实地核查</strong>：</p>
     <table id="riskTable">
-      <thead><tr><th style="width:4%;">#</th><th style="width:56%;">触发情形</th><th style="width:20%;">是否涉及</th><th style="width:20%;">风险等级</th></tr></thead>
+      <thead><tr><th style="width:4%;">#</th><th style="width:56%;">触发情形</th><th style="width:20%;">企业情况</th><th style="width:20%;">风险</th></tr></thead>
       <tbody>
         <tr><td>1</td><td>职工总数 ≤ 5人</td><td id="risk-emp">—</td><td id="risk-badge-emp"></td></tr>
         <tr><td>2</td><td>知识产权数量为 0</td><td id="risk-ip">—</td><td id="risk-badge-ip"></td></tr>
-        <tr><td>3</td><td>年度研发费用总额 < 10万元</td><td id="risk-rd">—</td><td id="risk-badge-rd"></td></tr>
-        <tr><td>4</td><td>近三年有严重违法失信记录</td><td id="risk-credit">见基本条件</td><td id="risk-badge-credit"></td></tr>
-        <tr><td>5</td><td>首次参评企业</td>
-          <td><select id="firstTime" onchange="recalcAll()"><option value="">请选择</option><option value="1">是，首次参评</option><option value="0">否，非首次</option></select></td>
-          <td id="risk-badge-first"></td></tr>
+        <tr><td>3</td><td>年度研发费用总额 &lt; 10万元</td><td id="risk-rd">—</td><td id="risk-badge-rd"></td></tr>
+        <tr><td>4</td><td>首次参评企业</td><td><select id="firstTime"><option value="">请选择</option><option value="1">是</option><option value="0">否</option></select></td><td id="risk-badge-first"></td></tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- ═══ 六、关于广东知企 ═══ -->
+<div class="card" style="border-left:4px solid var(--accent);">
+  <div class="card-header" style="background:#f8faff;">🏢 六、关于广东知企 — 您身边的政策申报专家</div>
+  <div class="card-body">
+    <p style="font-size:.9rem;margin-bottom:14px;line-height:1.8;">
+      广东知企企业管理服务有限公司专注于<strong>政策资源整合与企业发展赋能</strong>，提供"<strong>政策申报 + 管理提升 + 项目落地</strong>"一体化解决方案，助力企业精准享受政策红利。
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;">
+      <div style="background:#f8fafc;border-radius:8px;padding:12px;"><div style="font-weight:700;font-size:.88rem;margin-bottom:4px;">📋 政策申报与资质认定</div><div style="font-size:.78rem;color:var(--text-secondary);">高新 · 专精特新 · 科技型中小企业 · 工程中心等核心资质培育与认定</div></div>
+      <div style="background:#f8fafc;border-radius:8px;padding:12px;"><div style="font-weight:700;font-size:.88rem;margin-bottom:4px;">💡 知识产权与成果转化</div><div style="font-size:.78rem;color:var(--text-secondary);">专利 · 商标 · 著作权全链条服务，助力构建技术壁垒</div></div>
+      <div style="background:#f8fafc;border-radius:8px;padding:12px;"><div style="font-weight:700;font-size:.88rem;margin-bottom:4px;">📊 企业管理提升咨询</div><div style="font-size:.78rem;color:var(--text-secondary);">组织优化 · 绩效体系 · 流程制度 · 研发费用辅助账</div></div>
+      <div style="background:#f8fafc;border-radius:8px;padding:12px;"><div style="font-weight:700;font-size:.88rem;margin-bottom:4px;">📝 政务与项目文书</div><div style="font-size:.78rem;color:var(--text-secondary);">可研报告 · 申报书 · 汇报材料 · 发展规划等高质量文书</div></div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;padding:12px;background:linear-gradient(135deg,#eff6ff 0%,#f0fdf4 100%);border-radius:8px;">
+      <div style="flex:1;min-width:180px;"><strong style="color:var(--accent);">✅ 政策研究能力突出</strong><br><span style="font-size:.78rem;color:var(--text-secondary);">长期跟踪政策，精准匹配与落地转化</span></div>
+      <div style="flex:1;min-width:180px;"><strong style="color:var(--accent);">✅ 实操经验丰富</strong><br><span style="font-size:.78rem;color:var(--text-secondary);">深度参与资质认定全流程，熟悉评审逻辑</span></div>
+      <div style="flex:1;min-width:180px;"><strong style="color:var(--accent);">✅ 全链条综合服务</strong><br><span style="font-size:.78rem;color:var(--text-secondary);">评估→策划→申报→验收，一站式赋能</span></div>
+      <div style="flex:1;min-width:180px;"><strong style="color:var(--accent);">✅ 定制化方案</strong><br><span style="font-size:.78rem;color:var(--text-secondary);">拒绝模板化，针对性提升成功率</span></div>
+    </div>
+    <p style="text-align:center;margin-top:12px;font-size:.85rem;color:var(--text-secondary);">
+      累计服务企事业单位 <strong style="color:var(--accent);">200+</strong> 家/次 · 覆盖梅州"六县两区" · <strong style="color:var(--accent);">4年+</strong> 创客广东大赛协办经验
+    </p>
+    <p style="text-align:center;margin-top:6px;font-size:.92rem;">📞 咨询热线：<strong>古先生 15218093468</strong></p>
   </div>
 </div>
 
@@ -395,23 +251,25 @@
   <div class="card-header"><span class="dot dot-check"></span> 七、自评总结果</div>
   <div class="card-body" id="resultBody">
     <div class="score-display">
-      <div class="score-circle score-fail">0</div>
+      <div class="score-circle s-fail" id="bigScore">0</div>
       <div class="score-label">综合评价预估得分（满分100分）</div>
       <div class="score-detail">
-        <div class="score-item"><div class="val" style="color:var(--danger)">0</div><div class="lbl">科技人员 / 20分</div></div>
-        <div class="score-item"><div class="val">0</div><div class="lbl">研发投入 / 50分</div></div>
-        <div class="score-item"><div class="val">0</div><div class="lbl">科技成果 / 30分</div></div>
+        <div class="score-item"><div class="val" style="color:var(--danger)" id="subTech">0</div><div class="lbl">科技人员 / 20</div></div>
+        <div class="score-item"><div class="val" id="subRd">0</div><div class="lbl">研发投入 / 50</div></div>
+        <div class="score-item"><div class="val" id="subIp">0</div><div class="lbl">科技成果 / 30</div></div>
       </div>
-      <p style="color:var(--text-secondary);font-size:.82rem;margin-top:12px;">👆 请在上方填入企业实际数据，结果将实时更新</p>
+      <div class="verdict v-fail" id="verdictBox">👆 请填写上方数据后点击计算评分按钮</div>
+      <div id="riskNote" style="margin-top:10px;"></div>
     </div>
   </div>
 </div>
 
 <!-- ═══ 底部 ═══ -->
-<div style="text-align:center;padding:8px 0 4px;margin-bottom:10px;">
+<div style="text-align:center;padding:8px 0 4px;">
   <button class="btn btn-outline" onclick="window.print()" style="padding:6px 18px;font-size:.82rem;">🖨️ 打印自评表</button>
   <p style="font-size:.72rem;color:var(--text-secondary);margin-top:8px;">本工具不收集企业信息，所有数据仅在您本地浏览器中处理。</p>
 </div>
+
 <div class="footer">
   <p>© 2026 广东知企企业管理服务有限公司 | 科技企业一站式政策申报服务</p>
   <p style="margin-top:2px;">📍 立足梅州 · 服务广东 | 📞 古先生：15218093468</p>
@@ -420,235 +278,254 @@
 
 </div><!-- /container -->
 
-
-
 <!-- ══════════════════ JS ══════════════════ -->
 <script>
-// ── 全局状态 ──
-window._scores = { tech: 0, rd: 0, ip: 0, total: 0 };
-window._riskCount = 0;
-window._hasDirect = false;
+// ── 工具函数 ──
+function gv(id) { var e = document.getElementById(id); return e ? parseFloat(e.value) || 0 : 0; }
+function giv(id) { var e = document.getElementById(id); return e ? parseInt(e.value) || 0 : 0; }
+function $(id) { return document.getElementById(id); }
 
-function getVal(id) { return parseFloat(document.getElementById(id).value) || 0; }
-function getIntVal(id) { return parseInt(document.getElementById(id).value) || 0; }
+// ── 核心计算 ──
+function doCalc() {
+  // 1. 基本条件
+  checkBasic();
 
-function recalcAll() {
-  calcBasic();
-  calcDirect();
-  calcScore();
-  calcRisk();
-  showResult();
+  // 2. 直通车
+  checkDirect();
+
+  // 3. 评分
+  calcScores();
+
+  // 4. 风险
+  checkRisk();
+
+  // 5. 显示总结果
+  showTotal();
 }
 
-// ═══ 基本条件 ═══
-function calcBasic() {
-  const selects = document.querySelectorAll('.basic-select');
-  const emp = getIntVal('empCount');
-  const rev = getVal('revenue');
-  const assets = getVal('assets');
-  let allPass = true;
+// ═══ 基本条件检查 ═══
+function checkBasic() {
+  // bc0: 居民企业
+  setBadge('bb0', 'bc0', false);
+  // bc4: 行业+信用+查账征收
+  setBadge('bb4', 'bc4', false);
 
-  selects.forEach(sel => {
-    const badge = document.getElementById('basic-badge-' + sel.dataset.idx);
-    if (sel.value === '1') { badge.className = 'badge badge-pass'; badge.textContent = '✅ 符合'; }
-    else if (sel.value === '0') { badge.className = 'badge badge-fail'; badge.textContent = '❌ 不符合'; allPass = false; }
-    else { badge.className = 'badge badge-warn'; badge.textContent = '待确认'; allPass = false; }
-  });
+  // 人数
+  var emp = giv('empCount');
+  setNumBadge('bb1', emp, 500, '人');
 
-  ['basic-badge-1','basic-badge-2','basic-badge-3'].forEach((id, i) => {
-    const b = document.getElementById(id);
-    const val = [emp, rev, assets][i];
-    const max = [500, 20000, 20000][i];
-    const label = ['人', '万', '万'][i];
-    const errLabel = ['超500人', '超2亿', '超2亿'][i];
-    if (val > 0) {
-      if (val <= max) { b.className = 'badge badge-pass'; b.textContent = '✅ 符合 (' + val + label + ')'; }
-      else { b.className = 'badge badge-fail'; b.textContent = '❌ ' + errLabel; allPass = false; }
-    }
-  });
+  // 收入
+  var rev = gv('revenue');
+  setNumBadge('bb2', rev, 20000, '万');
 
-  const verdictDiv = document.getElementById('basicVerdict');
-  const allAnswered = Array.from(selects).every(s => s.value !== '') && emp > 0 && rev > 0 && assets > 0;
-  if (allAnswered) {
-    verdictDiv.style.display = 'block';
-    if (allPass) { verdictDiv.className = 'verdict verdict-pass'; verdictDiv.textContent = '✅ 基本条件全部通过，可继续评价'; }
-    else { verdictDiv.className = 'verdict verdict-fail'; verdictDiv.textContent = '❌ 存在不符合项，基本条件为硬性门槛，任一不满足则无法申报。'; }
-  } else { verdictDiv.style.display = 'none'; }
+  // 资产
+  var assets = gv('assets');
+  setNumBadge('bb3', assets, 20000, '万');
+
+  // 判断全部通过
+  var allPass = true;
+  for (var i = 0; i <= 4; i++) {
+    var b = $('bb' + i);
+    if (!b || b.textContent.indexOf('✅') === -1) { allPass = false; }
+  }
+
+  var vd = $('basicVerdict');
+  if (allPass) {
+    vd.style.display = 'block';
+    vd.className = 'verdict v-pass';
+    vd.textContent = '✅ 基本条件全部通过';
+  } else {
+    vd.style.display = 'block';
+    vd.className = 'verdict v-fail';
+    vd.textContent = '❌ 存在不符合项——基本条件为硬性门槛，任一不满足则无法申报';
+  }
 }
 
-// ═══ 直通车 ═══
-function calcDirect() {
-  var sel = document.getElementById('directPass');
-  var v = document.getElementById('directVerdict');
+function setBadge(badgeId, selectId, warn) {
+  var b = $(badgeId), s = $(selectId);
+  if (!b || !s) return;
+  if (s.value === '1') { b.className = 'badge badge-pass'; b.textContent = '✅ 符合'; }
+  else if (s.value === '0') { b.className = 'badge badge-fail'; b.textContent = '❌ 不符合'; }
+  else { b.className = 'badge badge-warn'; b.textContent = '请选择'; }
+}
+
+function setNumBadge(badgeId, val, max, unit) {
+  var b = $(badgeId);
+  if (!b) return;
+  if (val <= 0) { b.className = 'badge badge-warn'; b.textContent = '请填写'; }
+  else if (val <= max) { b.className = 'badge badge-pass'; b.textContent = '✅ 符合 (' + val + unit + ')'; }
+  else { b.className = 'badge badge-fail'; b.textContent = '❌ 超' + max + unit; }
+}
+
+// ═══ 直通车检查 ═══
+function checkDirect() {
+  var sel = $('directPass');
+  var v = $('directVerdict');
   var val = sel ? sel.value : '';
-  window._hasDirect = (val === '1');
   if (val === '1') {
-    v.innerHTML = '<span class="badge badge-pass">🚀 满足直通车条件！可跳过评分直接认定</span>';
+    v.innerHTML = '<span class="badge badge-direct">🚀 满足直通车条件</span>';
+    window._hasDirect = true;
   } else if (val === '0') {
-    v.innerHTML = '<span class="badge badge-fail">不满足，需通过综合评价打分（≥60分）</span>';
+    v.innerHTML = '<span class="badge badge-fail">不满足</span>';
+    window._hasDirect = false;
   } else {
     v.innerHTML = '';
+    window._hasDirect = false;
   }
 }
 
-// ═══ 评分 ═══
-function calcScore() {
-  const emp = getIntVal('empCount');
-  const rev = getVal('revenue');
-  const tech = getIntVal('techStaff');
-  const rd = getVal('rdCost');
-  const cost = getVal('costTotal');
-  const ip1 = getIntVal('ipClass1');
-  const ip2 = getIntVal('ipClass2');
+// ═══ 评分计算 ═══
+function calcScores() {
+  var emp = giv('empCount');
+  var rev = gv('revenue');
+  var tech = giv('techStaff');
+  var rd = gv('rdCost');
+  var cost = gv('costTotal');
+  var ip1 = giv('ipClass1');
+  var ip2 = giv('ipClass2');
 
-  document.getElementById('empDisplay').textContent = emp > 0 ? emp + ' 人' : '—';
-  document.getElementById('revDisplay').textContent = rev > 0 ? rev + ' 万元' : '—';
+  // 指标1：科技人员
+  var techScore = 0;
+  var techRatio = emp > 0 ? (tech / emp * 100) : 0;
+  $('techRatio').textContent = emp > 0 ? techRatio.toFixed(1) + '%' : '—';
+  if (techRatio >= 30) techScore = 20;
+  else if (techRatio >= 25) techScore = 16;
+  else if (techRatio >= 20) techScore = 12;
+  else if (techRatio >= 15) techScore = 8;
+  else if (techRatio >= 10) techScore = 4;
+  $('techScore').textContent = techScore;
 
-  // 指标1
-  let techScore = 0;
-  const techRatio = emp > 0 ? (tech / emp * 100) : 0;
-  document.getElementById('techRatio').textContent = emp > 0 ? techRatio.toFixed(1) + '%' : '—';
-  if (emp > 0) {
-    if (techRatio >= 30) techScore = 20;
-    else if (techRatio >= 25) techScore = 16;
-    else if (techRatio >= 20) techScore = 12;
-    else if (techRatio >= 15) techScore = 8;
-    else if (techRatio >= 10) techScore = 4;
-  }
-  document.getElementById('techScore').textContent = emp > 0 ? techScore : '—';
-
-  // 指标2
-  const rdRevRatio = rev > 0 ? (rd / rev * 100) : 0;
-  const rdCostRatio = cost > 0 ? (rd / cost * 100) : 0;
-  document.getElementById('rdRevRatio').textContent = rev > 0 ? rdRevRatio.toFixed(2) + '%' : '—';
-  document.getElementById('rdCostRatio').textContent = cost > 0 ? rdCostRatio.toFixed(2) + '%' : '—';
-
+  // 指标2：研发投入
   function rdToScore(r) {
     if (r >= 6) return 50; if (r >= 5) return 40; if (r >= 4) return 30;
     if (r >= 3) return 20; if (r >= 2) return 10; return 0;
   }
-  const rdRevScore = rdToScore(rdRevRatio);
-  const rdCostScore = rdToScore(rdCostRatio);
-  document.getElementById('rdRevScore').textContent = rev > 0 ? rdRevScore + ' 分' : '—';
-  document.getElementById('rdCostScore').textContent = cost > 0 ? rdCostScore + ' 分' : '—';
+  var rdRevRatio = rev > 0 ? (rd / rev * 100) : 0;
+  var rdCostRatio = cost > 0 ? (rd / cost * 100) : 0;
+  $('rdRevRatio').textContent = rev > 0 ? rdRevRatio.toFixed(2) + '%' : '—';
+  $('rdCostRatio').textContent = cost > 0 ? rdCostRatio.toFixed(2) + '%' : '—';
+  var rdRevScore = rdToScore(rdRevRatio);
+  var rdCostScore = rdToScore(rdCostRatio);
+  $('rdRevScore').textContent = rev > 0 ? rdRevScore + ' 分' : '—';
+  $('rdCostScore').textContent = cost > 0 ? rdCostScore + ' 分' : '—';
+  var method = $('rdMethod').value;
+  var rdFinal = (method === 'cost') ? rdCostScore : (method === 'revenue') ? rdRevScore : Math.max(rdRevScore, rdCostScore);
+  $('rdFinalScore').textContent = (rev > 0 || cost > 0) ? rdFinal : '—';
 
-  const method = document.getElementById('rdMethod').value;
-  let rdFinal = (method === 'cost') ? rdCostScore : (method === 'revenue') ? rdRevScore : Math.max(rdRevScore, rdCostScore);
-  document.getElementById('rdFinalScore').textContent = (rev > 0 || cost > 0) ? rdFinal : '—';
-
-  // 指标3
-  let ipScore = 0;
+  // 指标3：科技成果
+  var ipScore = 0;
   if (ip1 >= 1) ipScore = 30;
   else if (ip2 >= 4) ipScore = 24;
   else if (ip2 >= 3) ipScore = 18;
   else if (ip2 >= 2) ipScore = 12;
   else if (ip2 >= 1) ipScore = 6;
-  document.getElementById('ipScore').textContent = ipScore;
+  $('ipScore').textContent = ipScore;
 
-  window._scores = { tech: techScore, rd: rdFinal, ip: ipScore, total: techScore + rdFinal + ipScore };
-}
-
-// ═══ 风险 ═══
-function calcRisk() {
-  const emp = getIntVal('empCount');
-  const ip1 = getIntVal('ipClass1');
-  const ip2 = getIntVal('ipClass2');
-  const rd = getVal('rdCost');
-  const firstTime = document.getElementById('firstTime').value;
-
-  function setRisk(prefix, triggered, text) {
-    document.getElementById('risk-' + prefix).textContent = triggered ? text : '不涉及';
-    document.getElementById('risk-' + prefix).style.color = triggered ? 'var(--danger)' : 'var(--success)';
-    document.getElementById('risk-badge-' + prefix).innerHTML = triggered
-      ? '<span class="badge badge-fail">⚠ 将实地核查</span>'
-      : '<span class="badge badge-pass">✅ 不触发</span>';
+  // 直通车满分
+  if (window._hasDirect) {
+    techScore = 20;
+    rdFinal = 50;
+    ipScore = 30;
   }
 
-  setRisk('emp', emp > 0 && emp <= 5, '职工 ≤ 5人');
-  setRisk('ip', ip1 === 0 && ip2 === 0, '知识产权为0');
-  setRisk('rd', rd > 0 && rd < 10, '研发费 < 10万');
-
-  const creditSel = document.querySelector('.basic-select[data-idx="5"]');
-  const creditBad = creditSel && creditSel.value === '0';
-  document.getElementById('risk-credit').textContent = creditBad ? '存在不良记录' : '无不良记录';
-  document.getElementById('risk-credit').style.color = creditBad ? 'var(--danger)' : 'var(--success)';
-  document.getElementById('risk-badge-credit').innerHTML = creditBad
-    ? '<span class="badge badge-fail">⚠ 将实地核查</span>'
-    : '<span class="badge badge-pass">✅ 不触发</span>';
-
-  setRisk('first', firstTime === '1', '首次参评');
-
-  window._riskCount = document.querySelectorAll('#riskTable .badge-fail').length;
+  window._techScore = techScore;
+  window._rdScore = rdFinal;
+  window._ipScore = ipScore;
+  window._totalScore = techScore + rdFinal + ipScore;
 }
 
-// ═══ 总结果 ═══
-function showResult() {
-  var resultBody = document.getElementById('resultBody');
-  var s = window._scores;
-  var total = s.total;
+// ═══ 风险检查 ═══
+function checkRisk() {
+  var emp = giv('empCount');
+  var ip1 = giv('ipClass1'), ip2 = giv('ipClass2');
+  var rd = gv('rdCost');
 
-  var basicBadges = document.querySelectorAll('[id^="basic-badge-"]');
-  var basicAllPass = true;
-  for (var i = 0; i < basicBadges.length; i++) {
-    if (basicBadges[i].textContent.indexOf('✅') === -1) { basicAllPass = false; break; }
+  function setR(prefix, triggered, text) {
+    var el = $(prefix); var badge = $('risk-badge-' + prefix.split('-')[1]);
+    if (triggered) {
+      if (el) { el.textContent = text; el.style.color = 'var(--danger)'; }
+      if (badge) badge.innerHTML = '<span class="badge badge-fail">⚠ 将实地核查</span>';
+    } else {
+      if (el) { el.textContent = '不涉及'; el.style.color = 'var(--success)'; }
+      if (badge) badge.innerHTML = '<span class="badge badge-pass">✅ 不触发</span>';
+    }
   }
+  setR('risk-emp', emp > 0 && emp <= 5, '职工 ≤ 5人');
+  setR('risk-ip', ip1 === 0 && ip2 === 0, '知识产权为0');
+  setR('risk-rd', rd > 0 && rd < 10, '研发费 < 10万');
 
+  var ft = $('firstTime');
+  setR('risk-first', ft && ft.value === '1', '首次参评');
+
+  var riskEls = document.querySelectorAll('#riskTable .badge-fail');
+  window._riskCount = riskEls ? riskEls.length : 0;
+}
+
+// ═══ 显示总结果 ═══
+function showTotal() {
+  var total = window._totalScore || 0;
+  var tech = window._techScore || 0;
+  var rd = window._rdScore || 0;
+  var ip = window._ipScore || 0;
   var hasDirect = !!window._hasDirect;
-  var techOk = s.tech > 0;
+
+  // 检查基本条件
+  var basicOk = true;
+  for (var i = 0; i <= 4; i++) {
+    var b = $('bb' + i);
+    if (!b || b.textContent.indexOf('✅') === -1) { basicOk = false; break; }
+  }
+
+  var techOk = tech > 0;
   var scorePass = total >= 60 && techOk;
-  var canApply = basicAllPass && (hasDirect || scorePass);
 
   var circleClass, verdictText, verdictClass;
-  if (!basicAllPass) {
-    circleClass = 'score-fail';
-    verdictText = '❌ 基本条件未全部满足，暂不具备申报资格。请优先解决上方标红项目。';
-    verdictClass = 'verdict-fail';
+  if (!basicOk) {
+    circleClass = 's-fail'; verdictClass = 'v-fail';
+    verdictText = '❌ 基本条件未全部满足，暂不具备申报资格';
   } else if (hasDirect) {
-    circleClass = 'score-pass';
-    verdictText = '🚀 满足直通车条件！可直接申报科技型中小企业。';
-    verdictClass = 'verdict-direct';
+    circleClass = 's-direct'; verdictClass = 'v-direct';
+    verdictText = '🚀 满足直通车条件！可直接认定为科技型中小企业';
   } else if (scorePass) {
-    circleClass = 'score-pass';
-    verdictText = '✅ 预估得分 ≥ 60分，且科技人员得分 > 0，具备申报资格！';
-    verdictClass = 'verdict-pass';
+    circleClass = 's-pass'; verdictClass = 'v-pass';
+    verdictText = '✅ 预估得分 ≥ 60分，具备申报资格！请尽快登录 zjtx.miit.gov.cn 填报';
   } else if (total >= 60 && !techOk) {
-    circleClass = 'score-fail';
-    verdictText = '⚠️ 总分达标但科技人员指标得分为0，不满足硬性要求。';
-    verdictClass = 'verdict-fail';
+    circleClass = 's-fail'; verdictClass = 'v-fail';
+    verdictText = '⚠️ 总分达标但科技人员得分为0，不满足硬性要求';
   } else {
-    circleClass = 'score-fail';
-    verdictText = '❌ 预估得分不足60分，暂不满足申报条件。';
-    verdictClass = 'verdict-fail';
+    circleClass = 's-fail'; verdictClass = 'v-fail';
+    verdictText = '❌ 预估得分不足60分，暂不满足申报条件';
   }
 
-  var riskHTML = '';
-  if (window._riskCount > 0) {
-    riskHTML = '<div class="note" style="margin-top:12px;"><strong>⚠️ 风险提示：</strong>有 <strong>' + window._riskCount + '</strong> 项触发2026年度实地核查条件，申报时请提前准备证明材料。</div>';
+  // 更新DOM元素
+  var big = $('bigScore');
+  if (big) { big.textContent = total; big.className = 'score-circle ' + circleClass; }
+
+  var st = $('subTech');
+  if (st) { st.textContent = tech; st.style.color = tech > 0 ? 'var(--success)' : 'var(--danger)'; }
+  var sr = $('subRd'); if (sr) sr.textContent = rd;
+  var si = $('subIp'); if (si) si.textContent = ip;
+
+  var vb = $('verdictBox');
+  if (vb) { vb.textContent = verdictText; vb.className = 'verdict ' + verdictClass; }
+
+  var rn = $('riskNote');
+  if (rn) {
+    if (window._riskCount > 0) {
+      rn.innerHTML = '<div class="note"><strong>⚠️ 风险提示：</strong>有 <strong>' + window._riskCount + '</strong> 项触发实地核查，申报时请提前准备证明材料。</div>';
+    } else {
+      rn.innerHTML = '';
+    }
   }
-
-  var applyLink = canApply ? '<p style="margin-top:12px;font-size:.85rem;">📌 申报平台：<a href="https://zjtx.miit.gov.cn" target="_blank">优质中小企业梯度培育平台 zjtx.miit.gov.cn</a></p>' : '';
-
-  var techColor = s.tech > 0 ? 'var(--success)' : 'var(--danger)';
-
-  var html = '';
-  html += '<div class="score-display">';
-  html += '<div class="score-circle ' + circleClass + '">' + total + '</div>';
-  html += '<div class="score-label">综合评价预估得分（满分100分）</div>';
-  html += '<div class="score-detail">';
-  html += '<div class="score-item"><div class="val" style="color:' + techColor + '">' + s.tech + '</div><div class="lbl">科技人员 / 20分</div></div>';
-  html += '<div class="score-item"><div class="val">' + s.rd + '</div><div class="lbl">研发投入 / 50分</div></div>';
-  html += '<div class="score-item"><div class="val">' + s.ip + '</div><div class="lbl">科技成果 / 30分</div></div>';
-  html += '</div>';
-  html += '<div class="verdict ' + verdictClass + '" style="margin-top:16px;">' + verdictText + '</div>';
-  html += riskHTML;
-  html += applyLink;
-  html += '</div>';
-
-  resultBody.innerHTML = html;
 }
 
-// 初始化
-document.addEventListener('DOMContentLoaded', function() { recalcAll(); });
+// ── 初始化 ──
+window._hasDirect = false;
+window._totalScore = 0;
+window._techScore = 0;
+window._rdScore = 0;
+window._ipScore = 0;
+window._riskCount = 0;
 </script>
 </body>
 </html>
