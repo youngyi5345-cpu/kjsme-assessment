@@ -231,13 +231,13 @@
           <td><select class="basic-select" data-idx="0"><option value="">请选择</option><option value="1">是，境内居民企业</option><option value="0">否</option></select></td>
           <td>必须为"是"</td><td><span class="badge badge-warn" id="basic-badge-0">待确认</span></td></tr>
         <tr><td>2</td><td><strong>职工总数 ≤ 500人</strong></td>
-          <td><input type="number" id="empCount" class="input-num" placeholder="人" oninput="recalcAll()" onchange="recalcAll()"> 人</td>
+          <td><input type="number" id="empCount" class="input-num" placeholder="人"> 人</td>
           <td>≤ 500人</td><td><span class="badge badge-warn" id="basic-badge-1">待确认</span></td></tr>
         <tr><td>3</td><td><strong>年销售收入 ≤ 2亿元</strong></td>
-          <td><input type="number" id="revenue" class="input-num" placeholder="万元" oninput="recalcAll()" onchange="recalcAll()"> 万元</td>
+          <td><input type="number" id="revenue" class="input-num" placeholder="万元"> 万元</td>
           <td>≤ 20,000万</td><td><span class="badge badge-warn" id="basic-badge-2">待确认</span></td></tr>
         <tr><td>4</td><td><strong>资产总额 ≤ 2亿元</strong></td>
-          <td><input type="number" id="assets" class="input-num" placeholder="万元" oninput="recalcAll()" onchange="recalcAll()"> 万元</td>
+          <td><input type="number" id="assets" class="input-num" placeholder="万元"> 万元</td>
           <td>≤ 20,000万</td><td><span class="badge badge-warn" id="basic-badge-3">待确认</span></td></tr>
         <tr><td>5</td><td>行业不属于<strong>限制类、淘汰类</strong>，不属不适用税前加计扣除政策的行业</td>
           <td><select class="basic-select" data-idx="4"><option value="">请选择</option><option value="1">不属于限制/淘汰类</option><option value="0">属于限制/淘汰类</option></select></td>
@@ -256,30 +256,23 @@
 
 <!-- ═══ 三、直通车条件 ═══ -->
 <div class="card">
-  <div class="card-header"><span class="dot dot-tong"></span> 三、直通车条件（满足任一项可直接认定）</div>
+  <div class="card-header"><span class="dot dot-tong"></span> 三、直通车条件</div>
   <div class="card-body">
-    <p class="section-desc">若已满足基本条件1-7，且符合以下<strong>任一项</strong>，可跳过评分直接认定为科技型中小企业。</p>
+    <p class="section-desc">若已满足基本条件1-7，且符合以下<strong>任一项</strong>，可跳过评分直接认定为科技型中小企业：</p>
+    <ol style="font-size:.85rem;color:var(--text-secondary);margin:0 0 12px 18px;line-height:1.8;">
+      <li>拥有有效期内<strong>高新技术企业资格证书</strong></li>
+      <li>近五年内获得过<strong>国家级科技奖励</strong>（排名前三）</li>
+      <li>拥有经认定的<strong>省部级以上研发机构</strong></li>
+      <li>近五年内<strong>主导制定过国际标准、国家标准或行业标准</strong></li>
+      <li>近三年内获得<strong>合格机构投资者股权投资 ≥ 500万元</strong></li>
+    </ol>
     <table>
-      <thead><tr><th style="width:4%;">#</th><th style="width:56%;">直通车条件</th><th style="width:25%;">企业实际情况</th><th style="width:15%;">状态</th></tr></thead>
-      <tbody>
-        <tr><td>A</td><td>拥有<strong>有效期内高新技术企业资格证书</strong></td>
-          <td><select class="direct-select" data-idx="0"><option value="">请选择</option><option value="1">是</option><option value="0">否</option></select></td>
-          <td><span class="badge badge-warn" id="direct-badge-0">未勾选</span></td></tr>
-        <tr><td>B</td><td>近五年内获得过<strong>国家级科技奖励</strong>（排名前三）</td>
-          <td><select class="direct-select" data-idx="1"><option value="">请选择</option><option value="1">是</option><option value="0">否</option></select></td>
-          <td><span class="badge badge-warn" id="direct-badge-1">未勾选</span></td></tr>
-        <tr><td>C</td><td>拥有经认定的<strong>省部级以上研发机构</strong></td>
-          <td><select class="direct-select" data-idx="2"><option value="">请选择</option><option value="1">是</option><option value="0">否</option></select></td>
-          <td><span class="badge badge-warn" id="direct-badge-2">未勾选</span></td></tr>
-        <tr><td>D</td><td>近五年内<strong>主导制定过国际标准、国家标准或行业标准</strong></td>
-          <td><select class="direct-select" data-idx="3"><option value="">请选择</option><option value="1">是</option><option value="0">否</option></select></td>
-          <td><span class="badge badge-warn" id="direct-badge-3">未勾选</span></td></tr>
-        <tr><td>E</td><td>近三年内获得<strong>合格机构投资者股权投资 ≥ 500万元</strong></td>
-          <td><select class="direct-select" data-idx="4"><option value="">请选择</option><option value="1">是</option><option value="0">否</option></select></td>
-          <td><span class="badge badge-warn" id="direct-badge-4">未勾选</span></td></tr>
-      </tbody>
+      <tr>
+        <td style="width:30%;font-weight:600;">是否满足以上条件之一？</td>
+        <td style="width:30%;"><select id="directPass" onchange="recalcAll()"><option value="">请选择</option><option value="1">是，满足</option><option value="0">否，不满足</option></select></td>
+        <td><span id="directVerdict" style="font-weight:600;"></span></td>
+      </tr>
     </table>
-    <div id="directVerdict" class="verdict" style="display:none;"></div>
   </div>
 </div>
 
@@ -292,7 +285,7 @@
     <h4 style="margin-bottom:8px;">指标一：科技人员占比（满分20分）<span style="color:var(--danger);font-size:.75rem;"> ⚠ 不得为0分</span></h4>
     <table>
       <tr><td style="width:18%;font-weight:600;">职工总数</td><td style="width:32%;" id="empDisplay">—</td>
-        <td style="width:18%;font-weight:600;">科技人员数</td><td><input type="number" id="techStaff" class="input-num" placeholder="人" oninput="recalcAll()" onchange="recalcAll()"> 人</td></tr>
+        <td style="width:18%;font-weight:600;">科技人员数</td><td><input type="number" id="techStaff" class="input-num" placeholder="人"> 人</td></tr>
       <tr><td style="font-weight:600;">科技人员占比</td><td><strong id="techRatio" style="font-size:1.05rem;">—</strong></td>
         <td style="font-weight:600;">获分</td><td><strong id="techScore" style="font-size:1.05rem;">—</strong> / 20</td></tr>
     </table>
@@ -302,8 +295,8 @@
     <h4 style="margin:16px 0 8px;">指标二：研发投入指标（满分50分）</h4>
     <table>
       <tr><td style="width:18%;font-weight:600;">销售收入</td><td style="width:32%;" id="revDisplay">—</td>
-        <td style="width:18%;font-weight:600;">成本费用总额</td><td><input type="number" id="costTotal" class="input-num" placeholder="万元" oninput="recalcAll()" onchange="recalcAll()"> 万元</td></tr>
-      <tr><td style="font-weight:600;">研发费用总额</td><td><input type="number" id="rdCost" class="input-num" placeholder="万元" oninput="recalcAll()" onchange="recalcAll()"> 万元</td>
+        <td style="width:18%;font-weight:600;">成本费用总额</td><td><input type="number" id="costTotal" class="input-num" placeholder="万元"> 万元</td></tr>
+      <tr><td style="font-weight:600;">研发费用总额</td><td><input type="number" id="rdCost" class="input-num" placeholder="万元"> 万元</td>
         <td style="font-weight:600;">核算方式</td><td><select id="rdMethod" onchange="recalcAll()"><option value="both">取两者较高分</option><option value="revenue">按销售收入占比</option><option value="cost">按成本费用占比</option></select></td></tr>
     </table>
     <table style="margin-top:8px;">
@@ -319,16 +312,18 @@
       <thead><tr><th>知识产权类型</th><th>等级</th><th>企业拥有数量</th><th>说明</th></tr></thead>
       <tbody>
         <tr><td><strong>Ⅰ类知识产权</strong></td><td><span class="badge badge-info">高</span></td>
-          <td><input type="number" id="ipClass1" class="input-num" value="0" min="0" oninput="recalcAll()" onchange="recalcAll()"> 项</td>
+          <td><input type="number" id="ipClass1" class="input-num" value="0" min="0"> 项</td>
           <td style="font-size:.78rem;color:var(--text-secondary);">发明专利、植物新品种、国家新药、集成电路布图设计等</td></tr>
         <tr><td><strong>Ⅱ类知识产权</strong></td><td><span class="badge badge-warn">中</span></td>
-          <td><input type="number" id="ipClass2" class="input-num" value="0" min="0" oninput="recalcAll()" onchange="recalcAll()"> 项</td>
+          <td><input type="number" id="ipClass2" class="input-num" value="0" min="0"> 项</td>
           <td style="font-size:.78rem;color:var(--text-secondary);">实用新型专利、外观设计专利、软著等</td></tr>
       </tbody>
     </table>
     <p style="margin-top:6px;font-weight:600;">本项得分：<span id="ipScore" style="font-size:1.1rem;">—</span> / 30</p>
     <p class="hint">1项+ Ⅰ类=30分 | 4项+ Ⅱ类=24 | 3项Ⅱ类=18 | 2项Ⅱ类=12 | 1项Ⅱ类=6 | 0项=0</p>
-    <p style="text-align:center;margin-top:8px;"><button class="btn btn-outline" onclick="recalcAll()" style="padding:4px 14px;font-size:.78rem;">🔄 刷新计算结果</button></p>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="recalcAll()" style="padding:12px 40px;font-size:1rem;">📊 计算评分</button>
+    </div>
   </div>
 </div>
 
@@ -432,6 +427,7 @@
 // ── 全局状态 ──
 window._scores = { tech: 0, rd: 0, ip: 0, total: 0 };
 window._riskCount = 0;
+window._hasDirect = false;
 
 function getVal(id) { return parseFloat(document.getElementById(id).value) || 0; }
 function getIntVal(id) { return parseInt(document.getElementById(id).value) || 0; }
@@ -482,25 +478,17 @@ function calcBasic() {
 
 // ═══ 直通车 ═══
 function calcDirect() {
-  const selects = document.querySelectorAll('.direct-select');
-  let hasDirect = false;
-  selects.forEach(sel => {
-    const badge = document.getElementById('direct-badge-' + sel.dataset.idx);
-    if (sel.value === '1') { badge.className = 'badge badge-pass'; badge.textContent = '✅ 满足'; hasDirect = true; }
-    else if (sel.value === '0') { badge.className = 'badge badge-fail'; badge.textContent = '不满足'; }
-    else { badge.className = 'badge badge-warn'; badge.textContent = '未勾选'; }
-  });
-
-  const verdictDiv = document.getElementById('directVerdict');
-  if (hasDirect) {
-    verdictDiv.style.display = 'block';
-    verdictDiv.className = 'verdict verdict-direct';
-    verdictDiv.textContent = '🚀 满足直通车条件！可直接认定为科技型中小企业（仍需满足基本条件）。';
-  } else if (Array.from(selects).every(s => s.value === '0')) {
-    verdictDiv.style.display = 'block';
-    verdictDiv.className = 'verdict verdict-fail';
-    verdictDiv.textContent = '不满足直通车条件，需通过综合评价打分（≥60分）。';
-  } else { verdictDiv.style.display = 'none'; }
+  var sel = document.getElementById('directPass');
+  var v = document.getElementById('directVerdict');
+  var val = sel ? sel.value : '';
+  window._hasDirect = (val === '1');
+  if (val === '1') {
+    v.innerHTML = '<span class="badge badge-pass">🚀 满足直通车条件！可跳过评分直接认定</span>';
+  } else if (val === '0') {
+    v.innerHTML = '<span class="badge badge-fail">不满足，需通过综合评价打分（≥60分）</span>';
+  } else {
+    v.innerHTML = '';
+  }
 }
 
 // ═══ 评分 ═══
@@ -595,62 +583,68 @@ function calcRisk() {
 
 // ═══ 总结果 ═══
 function showResult() {
-  const resultBody = document.getElementById('resultBody');
-  const s = window._scores;
-  const total = s.total;
+  var resultBody = document.getElementById('resultBody');
+  var s = window._scores;
+  var total = s.total;
 
-  const basicBadges = document.querySelectorAll('[id^="basic-badge-"]');
-  let basicAllPass = Array.from(basicBadges).every(b => b.textContent.includes('✅'));
+  var basicBadges = document.querySelectorAll('[id^="basic-badge-"]');
+  var basicAllPass = true;
+  for (var i = 0; i < basicBadges.length; i++) {
+    if (basicBadges[i].textContent.indexOf('✅') === -1) { basicAllPass = false; break; }
+  }
 
-  let hasDirect = false;
-  document.querySelectorAll('[id^="direct-badge-"]').forEach(b => { if (b.textContent.includes('✅')) hasDirect = true; });
+  var hasDirect = !!window._hasDirect;
+  var techOk = s.tech > 0;
+  var scorePass = total >= 60 && techOk;
+  var canApply = basicAllPass && (hasDirect || scorePass);
 
-  const techOk = s.tech > 0;
-  const scorePass = total >= 60 && techOk;
-  const canApply = basicAllPass && (hasDirect || scorePass);
-
-  let circleClass, verdictText, verdictClass;
+  var circleClass, verdictText, verdictClass;
   if (!basicAllPass) {
     circleClass = 'score-fail';
     verdictText = '❌ 基本条件未全部满足，暂不具备申报资格。请优先解决上方标红项目。';
     verdictClass = 'verdict-fail';
   } else if (hasDirect) {
     circleClass = 'score-pass';
-    verdictText = '🚀 满足直通车条件！可直接申报科技型中小企业。广东知企将为您提供全程辅导。';
+    verdictText = '🚀 满足直通车条件！可直接申报科技型中小企业。';
     verdictClass = 'verdict-direct';
   } else if (scorePass) {
     circleClass = 'score-pass';
-    verdictText = '✅ 预估得分 ≥ 60分，且科技人员得分 > 0，具备申报资格！建议尽快登录 zjtx.miit.gov.cn 填报。';
+    verdictText = '✅ 预估得分 ≥ 60分，且科技人员得分 > 0，具备申报资格！';
     verdictClass = 'verdict-pass';
   } else if (total >= 60 && !techOk) {
     circleClass = 'score-fail';
-    verdictText = '⚠️ 总分达标但科技人员指标得分为0，不满足"科技人员得分不得为0"的硬性要求。';
+    verdictText = '⚠️ 总分达标但科技人员指标得分为0，不满足硬性要求。';
     verdictClass = 'verdict-fail';
   } else {
     circleClass = 'score-fail';
-    verdictText = '❌ 预估得分不足60分，暂不满足申报条件。建议提升科技人员占比、研发投入或知识产权储备。';
+    verdictText = '❌ 预估得分不足60分，暂不满足申报条件。';
     verdictClass = 'verdict-fail';
   }
 
-  let riskHTML = '';
+  var riskHTML = '';
   if (window._riskCount > 0) {
     riskHTML = '<div class="note" style="margin-top:12px;"><strong>⚠️ 风险提示：</strong>有 <strong>' + window._riskCount + '</strong> 项触发2026年度实地核查条件，申报时请提前准备证明材料。</div>';
   }
 
-  resultBody.innerHTML = `
-    <div class="score-display">
-      <div class="score-circle ${circleClass}">${total}</div>
-      <div class="score-label">综合评价预估得分（满分100分）</div>
-      <div class="score-detail">
-        <div class="score-item"><div class="val" style="color:${s.tech > 0 ? 'var(--success)' : 'var(--danger)'}">${s.tech}</div><div class="lbl">科技人员 / 20分</div></div>
-        <div class="score-item"><div class="val">${s.rd}</div><div class="lbl">研发投入 / 50分</div></div>
-        <div class="score-item"><div class="val">${s.ip}</div><div class="lbl">科技成果 / 30分</div></div>
-      </div>
-      <div class="verdict ${verdictClass}" style="margin-top:16px;">${verdictText}</div>
-      ${riskHTML}
-      ${canApply ? '<p style="margin-top:12px;font-size:.85rem;">📌 申报平台：<a href="https://zjtx.miit.gov.cn" target="_blank">优质中小企业梯度培育平台 zjtx.miit.gov.cn</a></p>' : ''}
-    </div>
-  `;
+  var applyLink = canApply ? '<p style="margin-top:12px;font-size:.85rem;">📌 申报平台：<a href="https://zjtx.miit.gov.cn" target="_blank">优质中小企业梯度培育平台 zjtx.miit.gov.cn</a></p>' : '';
+
+  var techColor = s.tech > 0 ? 'var(--success)' : 'var(--danger)';
+
+  var html = '';
+  html += '<div class="score-display">';
+  html += '<div class="score-circle ' + circleClass + '">' + total + '</div>';
+  html += '<div class="score-label">综合评价预估得分（满分100分）</div>';
+  html += '<div class="score-detail">';
+  html += '<div class="score-item"><div class="val" style="color:' + techColor + '">' + s.tech + '</div><div class="lbl">科技人员 / 20分</div></div>';
+  html += '<div class="score-item"><div class="val">' + s.rd + '</div><div class="lbl">研发投入 / 50分</div></div>';
+  html += '<div class="score-item"><div class="val">' + s.ip + '</div><div class="lbl">科技成果 / 30分</div></div>';
+  html += '</div>';
+  html += '<div class="verdict ' + verdictClass + '" style="margin-top:16px;">' + verdictText + '</div>';
+  html += riskHTML;
+  html += applyLink;
+  html += '</div>';
+
+  resultBody.innerHTML = html;
 }
 
 // 初始化
