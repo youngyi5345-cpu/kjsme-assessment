@@ -231,13 +231,13 @@
           <td><select class="basic-select" data-idx="0"><option value="">请选择</option><option value="1">是，境内居民企业</option><option value="0">否</option></select></td>
           <td>必须为"是"</td><td><span class="badge badge-warn" id="basic-badge-0">待确认</span></td></tr>
         <tr><td>2</td><td><strong>职工总数 ≤ 500人</strong></td>
-          <td><input type="number" id="empCount" class="input-num" placeholder="人" oninput="recalcAll()"> 人</td>
+          <td><input type="number" id="empCount" class="input-num" placeholder="人" oninput="recalcAll()" onchange="recalcAll()"> 人</td>
           <td>≤ 500人</td><td><span class="badge badge-warn" id="basic-badge-1">待确认</span></td></tr>
         <tr><td>3</td><td><strong>年销售收入 ≤ 2亿元</strong></td>
-          <td><input type="number" id="revenue" class="input-num" placeholder="万元" oninput="recalcAll()"> 万元</td>
+          <td><input type="number" id="revenue" class="input-num" placeholder="万元" oninput="recalcAll()" onchange="recalcAll()"> 万元</td>
           <td>≤ 20,000万</td><td><span class="badge badge-warn" id="basic-badge-2">待确认</span></td></tr>
         <tr><td>4</td><td><strong>资产总额 ≤ 2亿元</strong></td>
-          <td><input type="number" id="assets" class="input-num" placeholder="万元" oninput="recalcAll()"> 万元</td>
+          <td><input type="number" id="assets" class="input-num" placeholder="万元" oninput="recalcAll()" onchange="recalcAll()"> 万元</td>
           <td>≤ 20,000万</td><td><span class="badge badge-warn" id="basic-badge-3">待确认</span></td></tr>
         <tr><td>5</td><td>行业不属于<strong>限制类、淘汰类</strong>，不属不适用税前加计扣除政策的行业</td>
           <td><select class="basic-select" data-idx="4"><option value="">请选择</option><option value="1">不属于限制/淘汰类</option><option value="0">属于限制/淘汰类</option></select></td>
@@ -292,7 +292,7 @@
     <h4 style="margin-bottom:8px;">指标一：科技人员占比（满分20分）<span style="color:var(--danger);font-size:.75rem;"> ⚠ 不得为0分</span></h4>
     <table>
       <tr><td style="width:18%;font-weight:600;">职工总数</td><td style="width:32%;" id="empDisplay">—</td>
-        <td style="width:18%;font-weight:600;">科技人员数</td><td><input type="number" id="techStaff" class="input-num" placeholder="人" oninput="recalcAll()"> 人</td></tr>
+        <td style="width:18%;font-weight:600;">科技人员数</td><td><input type="number" id="techStaff" class="input-num" placeholder="人" oninput="recalcAll()" onchange="recalcAll()"> 人</td></tr>
       <tr><td style="font-weight:600;">科技人员占比</td><td><strong id="techRatio" style="font-size:1.05rem;">—</strong></td>
         <td style="font-weight:600;">获分</td><td><strong id="techScore" style="font-size:1.05rem;">—</strong> / 20</td></tr>
     </table>
@@ -302,8 +302,8 @@
     <h4 style="margin:16px 0 8px;">指标二：研发投入指标（满分50分）</h4>
     <table>
       <tr><td style="width:18%;font-weight:600;">销售收入</td><td style="width:32%;" id="revDisplay">—</td>
-        <td style="width:18%;font-weight:600;">成本费用总额</td><td><input type="number" id="costTotal" class="input-num" placeholder="万元" oninput="recalcAll()"> 万元</td></tr>
-      <tr><td style="font-weight:600;">研发费用总额</td><td><input type="number" id="rdCost" class="input-num" placeholder="万元" oninput="recalcAll()"> 万元</td>
+        <td style="width:18%;font-weight:600;">成本费用总额</td><td><input type="number" id="costTotal" class="input-num" placeholder="万元" oninput="recalcAll()" onchange="recalcAll()"> 万元</td></tr>
+      <tr><td style="font-weight:600;">研发费用总额</td><td><input type="number" id="rdCost" class="input-num" placeholder="万元" oninput="recalcAll()" onchange="recalcAll()"> 万元</td>
         <td style="font-weight:600;">核算方式</td><td><select id="rdMethod" onchange="recalcAll()"><option value="both">取两者较高分</option><option value="revenue">按销售收入占比</option><option value="cost">按成本费用占比</option></select></td></tr>
     </table>
     <table style="margin-top:8px;">
@@ -319,15 +319,16 @@
       <thead><tr><th>知识产权类型</th><th>等级</th><th>企业拥有数量</th><th>说明</th></tr></thead>
       <tbody>
         <tr><td><strong>Ⅰ类知识产权</strong></td><td><span class="badge badge-info">高</span></td>
-          <td><input type="number" id="ipClass1" class="input-num" value="0" min="0" oninput="recalcAll()"> 项</td>
+          <td><input type="number" id="ipClass1" class="input-num" value="0" min="0" oninput="recalcAll()" onchange="recalcAll()"> 项</td>
           <td style="font-size:.78rem;color:var(--text-secondary);">发明专利、植物新品种、国家新药、集成电路布图设计等</td></tr>
         <tr><td><strong>Ⅱ类知识产权</strong></td><td><span class="badge badge-warn">中</span></td>
-          <td><input type="number" id="ipClass2" class="input-num" value="0" min="0" oninput="recalcAll()"> 项</td>
+          <td><input type="number" id="ipClass2" class="input-num" value="0" min="0" oninput="recalcAll()" onchange="recalcAll()"> 项</td>
           <td style="font-size:.78rem;color:var(--text-secondary);">实用新型专利、外观设计专利、软著等</td></tr>
       </tbody>
     </table>
     <p style="margin-top:6px;font-weight:600;">本项得分：<span id="ipScore" style="font-size:1.1rem;">—</span> / 30</p>
     <p class="hint">1项+ Ⅰ类=30分 | 4项+ Ⅱ类=24 | 3项Ⅱ类=18 | 2项Ⅱ类=12 | 1项Ⅱ类=6 | 0项=0</p>
+    <p style="text-align:center;margin-top:8px;"><button class="btn btn-outline" onclick="recalcAll()" style="padding:4px 14px;font-size:.78rem;">🔄 刷新计算结果</button></p>
   </div>
 </div>
 
